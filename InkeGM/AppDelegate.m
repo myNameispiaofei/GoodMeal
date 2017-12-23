@@ -1,13 +1,15 @@
 //
 //  AppDelegate.m
-//  InkeGM
+//  AutoLayoutTest
 //
-//  Created by mubin on 2017/12/12.
-//  Copyright © 2017年 mubin. All rights reserved.
+//  Created by inke on 17/3/3.
+//  Copyright © 2017年 inke. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
+#import <Masonry.h>
+#import "IKGMLoginController.h"
+#import "IKGMHomepageController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,6 +18,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[ UIWindow alloc]initWithFrame:UIScreen.mainScreen.bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    NSString * str = @"";
+    NSLog(@"@"" len: %ld",str.length);
+    NSMutableDictionary * dace = [NSMutableDictionary dictionary];
+    [dace setObject:str forKey:@"hello"];
+    NSString * str2  = [dace objectForKey:@"hello"];
+     NSLog(@"str2 len: %ld",str2.length);
+   
+//    IKTAnimationController * dologinCV  = [[IKTAnimationController alloc]init];
+   IKGMLoginController *dologinCV=[[IKGMLoginController alloc]init];
+//    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:dologinCV];
+    self.window.rootViewController =dologinCV;
+    [self.window makeKeyAndVisible];
+
+    
     // Override point for customization after application launch.
     return YES;
 }
