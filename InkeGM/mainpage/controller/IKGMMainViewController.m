@@ -64,9 +64,9 @@
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0 );
     CGRect frame = CGRectZero;
     self.headerView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:flowLayout];
-    [self.headerView registerClass:[IKGMHeaderCollectionViewCell class] forCellWithReuseIdentifier:@"hello"];
+    [self.headerView registerClass:[IKGMHeaderCollectionViewCell class] forCellWithReuseIdentifier:@"headerCollectionCell"];
     [self.view addSubview:self.headerView];
-    self.headerView.backgroundColor = [UIColor redColor];
+//    self.headerView.backgroundColor = [UIColor redColor];
     self.headerView.delegate = self;
     self.headerView.dataSource = self;
     [self.headerView  mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -127,7 +127,7 @@
     self.tipsBgViw = tipsBgViw;
     
     UILabel *timeLabel = [[UILabel alloc]init];
-    timeLabel.text = @"XX:XX";
+    timeLabel.text = @"19:30";
     timeLabel.textColor = [UIColor whiteColor];
     timeLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightBlack];
     [self.tipsBgViw addSubview:timeLabel];
@@ -225,7 +225,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
         }
     }
     UICollectionViewCell * currentcell = [self.headerView cellForItemAtIndexPath:indexPath];
-    currentcell.backgroundColor = [UIColor blackColor];
+//    [currentcell didSelectStyle];
     self.selectIndexModel.dateIndex = indexPath;
     [self refreshCurrentMenuData:indexPath.row];
     

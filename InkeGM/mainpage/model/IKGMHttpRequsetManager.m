@@ -45,7 +45,7 @@
 
 - (void)requsetWithLoginModel:(IKGMLoginModel*)loginModel complete:(IKGMLoginBlock)complete {
     __weak typeof(self) wself = self;
-    NSString *url = @"http://192.168.17.243:11289/api/user/login";
+    NSString *url = @"http://47.95.160.110/api/user/login";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"Mbcx9496" forKey:@"passwd"];
     [params setObject:@"mub" forKey:@"username"];
@@ -55,12 +55,12 @@
         wself.ticket = [responseDictionary objectForKey:@"ticket"];
         NSLog(@"%@", responseDictionary);
         if(complete){
-            complete(0);
+            complete(1);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"eadda");
         if(complete){
-            complete(1);
+            complete(0);
         }
     }];
     

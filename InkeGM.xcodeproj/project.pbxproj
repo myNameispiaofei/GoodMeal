@@ -52,8 +52,12 @@
 		5E8949611FDFE2E500F8994B /* IKGMBaseTooL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E89495C1FDFE2E500F8994B /* IKGMBaseTooL.m */; };
 		5E8949621FDFE2E500F8994B /* IKGMLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E89495E1FDFE2E500F8994B /* IKGMLoginView.m */; };
 		5E8949681FDFE86500F8994B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8949671FDFE86500F8994B /* AppDelegate.m */; };
+
 		5E8B1F331FEE417B002C9180 /* IKGMAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B1F321FEE417B002C9180 /* IKGMAppConfig.m */; };
 		5E8B1F361FEE4B03002C9180 /* IKGMAtomFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B1F351FEE4B03002C9180 /* IKGMAtomFactory.m */; };
+
+		5E8B1F2F1FEE32D9002C9180 /* IKGMLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B1F2E1FEE32D9002C9180 /* IKGMLoginModel.m */; };
+
 		8C18174FE0F9F31E37EAC623 /* libPods-InkeGM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6AA12765F0D193F2925121 /* libPods-InkeGM.a */; };
 /* End PBXBuildFile section */
 
@@ -130,10 +134,15 @@
 		5E89495D1FDFE2E500F8994B /* IKGMLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKGMLoginView.h; sourceTree = "<group>"; };
 		5E89495E1FDFE2E500F8994B /* IKGMLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKGMLoginView.m; sourceTree = "<group>"; };
 		5E8949671FDFE86500F8994B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+
 		5E8B1F311FEE417B002C9180 /* IKGMAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMAppConfig.h; sourceTree = "<group>"; };
 		5E8B1F321FEE417B002C9180 /* IKGMAppConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMAppConfig.m; sourceTree = "<group>"; };
 		5E8B1F341FEE4B03002C9180 /* IKGMAtomFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMAtomFactory.h; sourceTree = "<group>"; };
 		5E8B1F351FEE4B03002C9180 /* IKGMAtomFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMAtomFactory.m; sourceTree = "<group>"; };
+
+		5E8B1F2D1FEE32D9002C9180 /* IKGMLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMLoginModel.h; sourceTree = "<group>"; };
+		5E8B1F2E1FEE32D9002C9180 /* IKGMLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMLoginModel.m; sourceTree = "<group>"; };
+
 		AC27AC34E6EC4A9A7470064E /* Pods-InkeGM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InkeGM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InkeGM/Pods-InkeGM.debug.xcconfig"; sourceTree = "<group>"; };
 		B71394869F5E8918612B3D49 /* Pods-InkeGM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InkeGM.release.xcconfig"; path = "Pods/Target Support Files/Pods-InkeGM/Pods-InkeGM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -407,6 +416,8 @@
 			children = (
 				5E8949581FDFE2E500F8994B /* IKGMHomepageItem.h */,
 				5E8949591FDFE2E500F8994B /* IKGMHomepageItem.m */,
+				5E8B1F2D1FEE32D9002C9180 /* IKGMLoginModel.h */,
+				5E8B1F2E1FEE32D9002C9180 /* IKGMLoginModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -586,6 +597,7 @@
 				5E8949471FDFE26F00F8994B /* IKGMHomepageController.m in Sources */,
 				5E89490D1FDFE22200F8994B /* IKGMHeaderCollectionViewCell.m in Sources */,
 				5E89495F1FDFE2E500F8994B /* IKGMLoginController.m in Sources */,
+				5E8B1F2F1FEE32D9002C9180 /* IKGMLoginModel.m in Sources */,
 				5E89493C1FDFE24E00F8994B /* IKGMSurplusHeaderView.m in Sources */,
 				5E8949511FDFE29300F8994B /* IKGMNoticeViewController.m in Sources */,
 				5E89490C1FDFE22200F8994B /* IKGMAlertView.m in Sources */,

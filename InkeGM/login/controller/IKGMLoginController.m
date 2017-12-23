@@ -11,6 +11,7 @@
 #import "IKGMLoginController.h"
 #import "IKGMBaseTooL.h"
 #import "IKGMLoginView.h"
+#import "IKGMLoginModel.h"
 #import "IKSGTabBarController.h"
 #import "IKGMHttpRequsetManager.h"
 @interface IKGMLoginController ()
@@ -102,13 +103,15 @@
 
 - (void)clickLoginBtn
 {
-
+    IKGMLoginModel * loginModel = [[IKGMLoginModel alloc] init];
+    loginModel.passwd = self.loginView.passWordTextField.text;
+    loginModel.username = self.loginView.accountTextField.text;
      IKSGTabBarController *tabvc = [[IKSGTabBarController alloc]init];
-    [[IKGMHttpRequsetManager sharedInstance] requsetWithLoginModel:nil complete:nil];
-    
-//    [manager loginOut];
-     self.view.window.rootViewController = tabvc;
-
+    [[IKGMHttpRequsetManager sharedInstance] requsetWithLoginModel:loginModel complete:^(NSInteger result){
+        if(result) {
+             self.view.window.rootViewController = tabvc;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
