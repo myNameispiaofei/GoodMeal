@@ -52,6 +52,8 @@
 		5E8949611FDFE2E500F8994B /* IKGMBaseTooL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E89495C1FDFE2E500F8994B /* IKGMBaseTooL.m */; };
 		5E8949621FDFE2E500F8994B /* IKGMLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E89495E1FDFE2E500F8994B /* IKGMLoginView.m */; };
 		5E8949681FDFE86500F8994B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8949671FDFE86500F8994B /* AppDelegate.m */; };
+		5E8B1F331FEE417B002C9180 /* IKGMAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B1F321FEE417B002C9180 /* IKGMAppConfig.m */; };
+		5E8B1F361FEE4B03002C9180 /* IKGMAtomFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8B1F351FEE4B03002C9180 /* IKGMAtomFactory.m */; };
 		8C18174FE0F9F31E37EAC623 /* libPods-InkeGM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B6AA12765F0D193F2925121 /* libPods-InkeGM.a */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +130,10 @@
 		5E89495D1FDFE2E500F8994B /* IKGMLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKGMLoginView.h; sourceTree = "<group>"; };
 		5E89495E1FDFE2E500F8994B /* IKGMLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKGMLoginView.m; sourceTree = "<group>"; };
 		5E8949671FDFE86500F8994B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5E8B1F311FEE417B002C9180 /* IKGMAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMAppConfig.h; sourceTree = "<group>"; };
+		5E8B1F321FEE417B002C9180 /* IKGMAppConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMAppConfig.m; sourceTree = "<group>"; };
+		5E8B1F341FEE4B03002C9180 /* IKGMAtomFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMAtomFactory.h; sourceTree = "<group>"; };
+		5E8B1F351FEE4B03002C9180 /* IKGMAtomFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMAtomFactory.m; sourceTree = "<group>"; };
 		AC27AC34E6EC4A9A7470064E /* Pods-InkeGM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InkeGM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InkeGM/Pods-InkeGM.debug.xcconfig"; sourceTree = "<group>"; };
 		B71394869F5E8918612B3D49 /* Pods-InkeGM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InkeGM.release.xcconfig"; path = "Pods/Target Support Files/Pods-InkeGM/Pods-InkeGM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +185,7 @@
 				5E8949331FDFE24E00F8994B /* surplus */,
 				5E8949101FDFE23A00F8994B /* source */,
 				5E8948EE1FDFE22200F8994B /* mainpage */,
+				5E8B1F301FEE3FD7002C9180 /* atom */,
 				5E8948351FDFDF1D00F8994B /* main */,
 				5E89481F1FDFDE0700F8994B /* AppDelegate.h */,
 				5E8949671FDFE86500F8994B /* AppDelegate.m */,
@@ -415,6 +422,17 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		5E8B1F301FEE3FD7002C9180 /* atom */ = {
+			isa = PBXGroup;
+			children = (
+				5E8B1F311FEE417B002C9180 /* IKGMAppConfig.h */,
+				5E8B1F321FEE417B002C9180 /* IKGMAppConfig.m */,
+				5E8B1F341FEE4B03002C9180 /* IKGMAtomFactory.h */,
+				5E8B1F351FEE4B03002C9180 /* IKGMAtomFactory.m */,
+			);
+			path = atom;
+			sourceTree = "<group>";
+		};
 		82E1BC515E6614105F0397E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +597,7 @@
 				5E8949611FDFE2E500F8994B /* IKGMBaseTooL.m in Sources */,
 				5E8949621FDFE2E500F8994B /* IKGMLoginView.m in Sources */,
 				5E8949521FDFE29300F8994B /* IKGMNoticeView.m in Sources */,
+				5E8B1F361FEE4B03002C9180 /* IKGMAtomFactory.m in Sources */,
 				5E8949481FDFE26F00F8994B /* IKGMHomePageSetingCell.m in Sources */,
 				5E8949081FDFE22200F8994B /* IKSGTabBarController.m in Sources */,
 				5E8949491FDFE26F00F8994B /* IKGMHomeTableViewCell.m in Sources */,
@@ -588,6 +607,7 @@
 				5E89493B1FDFE24E00F8994B /* IKGMSurplusViewController.m in Sources */,
 				5E850A071FE658DE00A8E4C5 /* IKGMMainViewController.m in Sources */,
 				5E89490A1FDFE22200F8994B /* IKGMLastSelectIndexModel.m in Sources */,
+				5E8B1F331FEE417B002C9180 /* IKGMAppConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
