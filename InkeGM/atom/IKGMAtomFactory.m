@@ -99,10 +99,9 @@
     return self;
 }
 
-- (NSString *)generateAtomParams {
-    NSMutableString * query = [NSMutableString string];
-    []
-}
+//- (NSString *)generateAtomParams {
+//    NSMutableString * query = [NSMutableString string];
+//}
 
 
 @end
