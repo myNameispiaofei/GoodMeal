@@ -33,13 +33,13 @@
     [self.contentView addSubview: self.numLabel];
     [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.top.equalTo(self.contentView);
-        make.height.equalTo(self.contentView.mas_centerY);
+        make.height.mas_equalTo(27);
     }];
     self.dateLabel = [[UILabel alloc] init];
     [self.contentView addSubview:self.dateLabel];
     [self.dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.bottom.equalTo(self.contentView);
-        make.top.equalTo(self.numLabel);
+        make.top.equalTo(self.numLabel.mas_bottom);
     }];
     self.numLabel.text =  @"一";
     self.dateLabel.text = @"13";

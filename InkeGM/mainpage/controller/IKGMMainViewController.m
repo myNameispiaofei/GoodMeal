@@ -35,15 +35,17 @@
 @property (nonatomic ,strong) NSMutableArray<IKGMRestaurantModel*>* restautantList;
 @end
 
+static NSString *cellIdentify =@"headerCellIdentify";
 @implementation IKGMMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.restautantList = [NSMutableArray array];
+    [self layoutHeader];
     [self requestGmMenu];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initSelcetIndexModel]; //加单例否？
-    [self layoutHeader];
+   
 //    [self configUI];
 //    [self layoutUI];
 //    [self layoutStoreUI];
@@ -64,9 +66,8 @@
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0 );
     CGRect frame = CGRectZero;
     self.headerView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:flowLayout];
-    [self.headerView registerClass:[IKGMHeaderCollectionViewCell class] forCellWithReuseIdentifier:@"headerCollectionCell"];
     [self.view addSubview:self.headerView];
-//    self.headerView.backgroundColor = [UIColor redColor];
+    [self.headerView registerClass:[IKGMHeaderCollectionViewCell class] forCellWithReuseIdentifier:cellIdentify];
     self.headerView.delegate = self;
     self.headerView.dataSource = self;
     [self.headerView  mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,6 +75,7 @@
         make.top.equalTo(self.view.mas_top).offset(17.5);
         make.height.mas_equalTo(54);
     }];
+    NSLog(@"3eqe");
     
 }
 
@@ -178,10 +180,17 @@
 
 - (void)clickBookBtn
 {
+    [[IKGMHttpRequsetManager sharedInstance] preparedish:nil complete:^(NSDictionary *resDict, NSInteger code) {
+        
+        if (resDict) {
+            NSLog(@"resDict");
+        }
+    }];
+    
     IKMGAlertViewController * vc = [[IKMGAlertViewController alloc]initWithType:IKGMAlertViewDeflute];
      vc.modalPresentationStyle =  UIModalPresentationCustom;
     [self presentViewController:vc animated:NO completion:nil];
-    [[IKGMHttpRequsetManager sharedInstance] requsetWithLogOutModel:nil complete:nil];
+//    [[IKGMHttpRequsetManager sharedInstance] requsetWithLogOutModel:nil complete:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -278,7 +287,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if(collectionView == self.headerView){
-        IKGMHeaderCollectionViewCell *cell = [collectionView  dequeueReusableCellWithReuseIdentifier:@"hello" forIndexPath:indexPath];
+        IKGMHeaderCollectionViewCell *cell = [collectionView  dequeueReusableCellWithReuseIdentifier:cellIdentify forIndexPath:indexPath];
         return cell;
     }
     if(collectionView == self.storeCollectionView) {
@@ -309,7 +318,12 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [[IKGMHttpRequsetManager sharedInstance] orderGoodMeal:nil complete:^(NSDictionary *resDict, NSInteger code) {
+        
+        if(code == 0) {
+            // do 
+        }
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

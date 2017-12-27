@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 @class IKGMLoginModel;
 @class IKGMLogoutModel;
+@class IKGMOrderModel;
+
 @interface IKGMHttpRequsetManager : NSObject
 
 typedef void (^IKGMLoginBlock)(NSInteger code);
+
+typedef void (^IKGMOrderResult)(NSDictionary * resDict,NSInteger code);
 
 typedef void (^IKGMRequestMenu)(NSDictionary * resDict,NSInteger code);
 
@@ -23,5 +27,11 @@ typedef void (^IKGMRequestMenu)(NSDictionary * resDict,NSInteger code);
 
 
 - (void)requseMenu :(id)user  complete:(IKGMRequestMenu)complete;
+
+
+- (void)orderGoodMeal:(IKGMOrderModel *)order complete:(IKGMOrderResult)complete;
+
+
+- (void)preparedish:(id)dish complete:(IKGMOrderResult)complete;
 
 @end
