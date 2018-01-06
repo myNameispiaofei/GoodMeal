@@ -11,7 +11,7 @@
 #import "IKMGAlertViewController.h"
 
 @interface IKMGAlertViewController ()<IKGMAlertViewDelegate>
-@property (nonatomic , strong)IKGMAlertView * alertView;
+@property (nonatomic , strong) IKGMAlertView * alertView;
 @property (nonatomic , assign) IKGMAlertViewType type;
 @end
 
@@ -55,6 +55,10 @@
     return  self;
 }
 
+- (void)setTitel :(NSString *)resName {
+    [self.alertView setTipName: resName];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [event.allTouches anyObject];
     CGPoint point = [touch locationInView:self.view];
@@ -70,11 +74,13 @@
 #pragma  -mark  IKGMAlertViewDelegate
 
 - (void)clickCancleBtnAction {
-     [self dismissViewControllerAnimated:NO completion:nil];
+    [self.delegate clickCancleBtn];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)clickBookBtnAction {
-     [self dismissViewControllerAnimated:NO completion:nil];
+    [self.delegate clickBookBtn];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

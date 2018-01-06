@@ -8,8 +8,9 @@
 
 #import "IKGMHttpRequsetManager.h"
 #import <AFNetworking.h>
+#import "IKGMLoginModel.h"
+#import "IKGMUserManager.h"
 
-@class  IKGMLoginModel;
 @class  IKGMLogoutModel;
 @class  IKGMOrderModel;
 @interface IKGMHttpRequsetManager ()
@@ -45,19 +46,27 @@
 
 // 登录接口
 - (void)requsetWithLoginModel:(IKGMLoginModel*)loginModel complete:(IKGMLoginBlock)complete {
+    
     __weak typeof(self) wself = self;
     NSString *url = @"http://47.95.160.110/api/user/login";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"Mbcx9496" forKey:@"passwd"];
-    [params setObject:@"mub" forKey:@"username"];
+    [params setObject:loginModel.passwd forKey:@"passwd"];
+    [params setObject:loginModel.username forKey:@"username"];
+    if(loginModel)
     [self.mar POST:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSError *error;
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         wself.ticket = [responseDictionary objectForKey:@"ticket"];
-        NSLog(@"%@", responseDictionary);
-        if(complete){
-            complete(1);
+        if(wself.ticket){
+            if(complete){
+                complete(1);
+            }
+        }else {
+            if(complete){
+                complete(0);
+            }
         }
+        NSLog(@"%@", responseDictionary);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"eadda");
         if(complete){
@@ -66,12 +75,12 @@
     }];
     
 }
-
+//
 - (void)requsetWithLogOutModel:(IKGMLogoutModel*)loginModel complete:(IKGMLoginBlock)complete {
     NSString *url = @"http://192.168.17.243:11289/api/user/logout";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:self.ticket forKey:@"ticket"];
-    [params setObject:@"mub" forKey:@"username"];
+    [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
     [self.mar POST:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSLog(@"223%@",responseObject);
         NSError *error;
@@ -80,15 +89,13 @@
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"eadda");
     }];
-    
-    
 }
 
 // 主页接口
 - (void)requseMenu :(id)user  complete:(IKGMRequestMenu)complete {
     NSString *url = @"http://47.95.160.110/api/main/menu";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"mub" forKey:@"username"];
+    [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
     [params setObject:self.ticket forKey:@"ticket"];
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSLog(@"223%@",responseObject);
@@ -108,7 +115,7 @@
 - (void)orderGoodMeal:(IKGMOrderModel *)order complete:(IKGMOrderResult)complete {
     NSString *url  = @"http://47.95.160.110/api/order/add";
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    [params setObject:@"mub" forKey:@"username"];
+    [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
     [params setObject:@"1" forKey:@"restaurantId"];
     [params setObject:@"1" forKey:@"dishId"];
     [params setObject:self.ticket forKey:@"ticket"];
@@ -118,6 +125,7 @@
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         if(complete) {
             complete(responseDictionary ,0);
+            NSLog(@"d订餐成功！！！！！！！！！！！！");
         }
         NSLog(@"%@", responseDictionary);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
@@ -129,7 +137,7 @@
 - (void)preparedish:(id)dish complete:(IKGMOrderResult)complete {
     NSString *url = @"http://47.95.160.110/api/preparedish/add";
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    [params setObject:@"mub" forKey:@"username"];
+    [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
     [params setObject:self.ticket  forKey:@"ticket"];
     
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
@@ -149,7 +157,7 @@
 - (void)preparedishList:(id)dish complete:(IKGMOrderResult)complete {
     NSString *url = @"http://47.95.160.110/api/preparedish/grab";
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    [params setObject:@"mub" forKey:@"username"];
+    [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
     [params setObject:self.ticket  forKey:@"ticket"];
     
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
@@ -169,7 +177,7 @@
 - (void)getDinner:(id)dish complete:(IKGMOrderResult) complete {
     NSString *url = @"http://47.95.160.110/api/preparedish/grab";
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    [params setObject:@"mub" forKey:@"username"];
+    [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
     [params setObject:self.ticket  forKey:@"ticket"];
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSError *error;

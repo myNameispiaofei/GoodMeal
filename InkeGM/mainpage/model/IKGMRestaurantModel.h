@@ -10,7 +10,6 @@
 
 @class IKGMRestaurantSectionList ;
 
-//
 @interface IKGMRestaurantModel : NSObject
 
 @property (nonatomic ,copy)    NSString *restaurantName;
@@ -24,7 +23,7 @@
 
 @end
 
-//
+
 @class IKGMDishModel;
 
 @interface IKGMRestaurantSectionList : NSObject

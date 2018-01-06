@@ -93,6 +93,10 @@
     }
 }
 
+- (void)setTipName :(NSString *)name{
+    self.tipsLabel.text = name;
+}
+
 - (void)layoutUI:(IKGMAlertViewType)type {
     
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {

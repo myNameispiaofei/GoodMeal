@@ -21,7 +21,7 @@
 
 
 
-@interface IKGMMainViewController ()<UICollectionViewDelegate ,UICollectionViewDataSource, UITableViewDataSource,UITableViewDelegate>
+@interface IKGMMainViewController ()<UICollectionViewDelegate ,UICollectionViewDataSource, UITableViewDataSource,UITableViewDelegate,IKMGAlertViewControllerDelegate>
 
 @property (nonatomic ,strong) UICollectionView * headerView;
 @property (nonatomic ,strong) UICollectionView * storeCollectionView;
@@ -36,7 +36,18 @@
 @end
 
 static NSString *cellIdentify =@"headerCellIdentify";
+
 @implementation IKGMMainViewController
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _selectIndexModel = nil;
+        _restaurantModel = nil;
+        _restautantList = nil;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,13 +56,9 @@ static NSString *cellIdentify =@"headerCellIdentify";
     [self requestGmMenu];
     self.view.backgroundColor = [UIColor whiteColor];
     [self initSelcetIndexModel]; //加单例否？
-   
-//    [self configUI];
-//    [self layoutUI];
-//    [self layoutStoreUI];
-//    [self layoutMenuTabelUI];
-   
 }
+
+
 - (void)initSelcetIndexModel {
     self.selectIndexModel = [[IKGMLastSelectIndexModel alloc]init];
     self.selectIndexModel.dateIndex = nil;
@@ -74,9 +81,7 @@ static NSString *cellIdentify =@"headerCellIdentify";
         make.width.left.equalTo(self.view);
         make.top.equalTo(self.view.mas_top).offset(17.5);
         make.height.mas_equalTo(54);
-    }];
-    NSLog(@"3eqe");
-    
+    }];    
 }
 
 
@@ -89,7 +94,7 @@ static NSString *cellIdentify =@"headerCellIdentify";
     self.storeCollectionView = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:flowLayout];
     [self.storeCollectionView registerClass:[IKGMRestaurantCollectionViewCell class] forCellWithReuseIdentifier:@"nihao"];
     [self.view addSubview:self.storeCollectionView];
-    self.storeCollectionView.backgroundColor = [UIColor redColor];
+    self.storeCollectionView.backgroundColor = k16RGBColor(0xfcfcfe);
     self.storeCollectionView.delegate = self;
     self.storeCollectionView.dataSource = self;
     [self.storeCollectionView  mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,7 +155,7 @@ static NSString *cellIdentify =@"headerCellIdentify";
     bookBtn.backgroundColor = k16RGBColor(0xf5a54e);
     bookBtn.layer.masksToBounds = YES;
     bookBtn.showsTouchWhenHighlighted = YES;
-    [bookBtn addTarget:self action:@selector(clickBookBtn) forControlEvents:UIControlEventTouchUpInside];
+    [bookBtn addTarget:self action:@selector(clickGMBookBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:bookBtn];
     self.bookBtn = bookBtn;
 }
@@ -178,15 +183,8 @@ static NSString *cellIdentify =@"headerCellIdentify";
     }];
 }
 
-- (void)clickBookBtn
+- (void)clickGMBookBtn
 {
-    [[IKGMHttpRequsetManager sharedInstance] preparedish:nil complete:^(NSDictionary *resDict, NSInteger code) {
-        
-        if (resDict) {
-            NSLog(@"resDict");
-        }
-    }];
-    
     IKMGAlertViewController * vc = [[IKMGAlertViewController alloc]initWithType:IKGMAlertViewDeflute];
      vc.modalPresentationStyle =  UIModalPresentationCustom;
     [self presentViewController:vc animated:NO completion:nil];
@@ -230,11 +228,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     if(self.selectIndexModel.dateIndex) {
          if(self.selectIndexModel.dateIndex.row != indexPath.row) {
             UICollectionViewCell *oldcell = [self.headerView cellForItemAtIndexPath:self.selectIndexModel.dateIndex];
-            oldcell.backgroundColor = [UIColor blueColor];
+            oldcell.backgroundColor = [UIColor grayColor];
         }
     }
-    UICollectionViewCell * currentcell = [self.headerView cellForItemAtIndexPath:indexPath];
-//    [currentcell didSelectStyle];
+//    UICollectionViewCell * currentcell = [self.headerView cellForItemAtIndexPath:indexPath];
     self.selectIndexModel.dateIndex = indexPath;
     [self refreshCurrentMenuData:indexPath.row];
     
@@ -246,13 +243,14 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     if(self.selectIndexModel.storeIndex) {
         if(self.selectIndexModel.storeIndex.row != indexPath.row) {
             UICollectionViewCell *oldCell = [self.storeCollectionView cellForItemAtIndexPath:self.selectIndexModel.storeIndex];
-            oldCell.backgroundColor = [UIColor blueColor];
+            oldCell.backgroundColor = k16RGBColor(0xfcfcfe);
         }
     }
     UICollectionViewCell * currentCell = [self.storeCollectionView cellForItemAtIndexPath:indexPath];
-    currentCell.backgroundColor = [UIColor blackColor];
+    currentCell.backgroundColor = k16RGBColor(0xf5a54e);
     self.selectIndexModel.storeIndex = indexPath;
     [self refreshCurrentMenuData:indexPath.row];
+    
 }
 
 - (void)refreshCurrentStoreData:(NSInteger)index {
@@ -318,12 +316,8 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [[IKGMHttpRequsetManager sharedInstance] orderGoodMeal:nil complete:^(NSDictionary *resDict, NSInteger code) {
-        
-        if(code == 0) {
-            // do 
-        }
-    }];
+    
+    self.selectIndexModel.menuIndex = indexPath;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -332,13 +326,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"qqq"];
     }
     cell.textLabel.text = self.restautantList[0].sectionList[0].dishList[indexPath.row].dishName;
-
+    cell.backgroundColor = k16RGBColor(0xfcfcfe);
     return cell;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
+    return 47;
 }
 
 - (void)requestGmMenu {
@@ -347,6 +341,9 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     [[IKGMHttpRequsetManager sharedInstance] requseMenu:nil complete:^(NSDictionary *resDict ,NSInteger code) {
         if(resDict){
             [wself  paraseDict:resDict];
+            if (_restautantList.count == 0) {
+                return ;
+            }
             [self configUI];
             [self layoutUI];
             [self layoutStoreUI];
@@ -359,7 +356,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 
 - (void)paraseDict:(NSDictionary *)resDict {
     NSDictionary *resDit = [resDict objectForKey:@"data"];
-    NSArray * resList = [resDit objectForKey:@"restaurantList"];
+    NSArray *resList = [resDit objectForKey:@"restaurantList"];
+    if (resList.count == 0) {
+        return;
+    }
     for (NSDictionary * restautant in resList) {
         IKGMRestaurantModel *restaurantModel =[IKGMRestaurantModel yy_modelWithDictionary:restautant];
         if(!self.restautantList) {
@@ -367,7 +367,32 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
         }
         [self.restautantList addObject:restaurantModel];
     }
-//    [self.storeCollectionView reloadData];
-//    [self.menuTabelView reloadData];
+
 }
+
+#pragma  - mark  IKMGAlertViewControllerDelegate
+
+
+- (void)clickBookBtn {
+    [[IKGMHttpRequsetManager sharedInstance] orderGoodMeal:nil complete:^(NSDictionary *resDict, NSInteger code) {
+        if (resDict) {
+            NSString *name = self.restautantList[0].sectionList[0].dishList[self.selectIndexModel.menuIndex.row].dishName;
+            IKMGAlertViewController * vc = [[IKMGAlertViewController alloc]initWithType:IKGMAlertViewReslute];
+            [vc setTitel:name];
+            vc.delegate = self;
+            vc.modalPresentationStyle =  UIModalPresentationCustom;
+            [self presentViewController:vc animated:NO completion:nil];
+        }
+    }];
+
+}
+
+- (void)clickCancleBtn {
+
+}
+
+
+
+
+
 @end

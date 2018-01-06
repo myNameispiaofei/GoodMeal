@@ -14,6 +14,7 @@
 #import "IKGMLoginModel.h"
 #import "IKSGTabBarController.h"
 #import "IKGMHttpRequsetManager.h"
+#import "IKGMUserManager.h"
 @interface IKGMLoginController ()
 @property (nonatomic ,strong) IKGMLoginView *loginView;
 @property (nonatomic ,strong) UIButton      *loginBtn;
@@ -82,20 +83,17 @@
 }
 -(void)transformView:(NSNotification *)aNSNotification
 {
-    //获取键盘弹出前的Rect
     NSValue *keyBoardBeginBounds=[[aNSNotification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect beginRect=[keyBoardBeginBounds CGRectValue];
     
-    //获取键盘弹出后的Rect
+
     NSValue *keyBoardEndBounds=[[aNSNotification userInfo]objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect  endRect=[keyBoardEndBounds CGRectValue];
     
-    //获取键盘位置变化前后纵坐标Y的变化值
     CGFloat deltaY= endRect.origin.y-beginRect.origin.y;
     NSLog(@"看看这个变化的Y值:%f",deltaY);
     
-    //在0.25s内完成self.view的Frame的变化，等于是给self.view添加一个向上移动deltaY的动画
-   
+
     [UIView animateWithDuration:0.25f animations:^{
         [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+deltaY/2, self.view.frame.size.width, self.view.frame.size.height)];
     }];
@@ -106,9 +104,11 @@
     IKGMLoginModel * loginModel = [[IKGMLoginModel alloc] init];
     loginModel.passwd = self.loginView.passWordTextField.text;
     loginModel.username = self.loginView.accountTextField.text;
-     IKSGTabBarController *tabvc = [[IKSGTabBarController alloc]init];
+    
     [[IKGMHttpRequsetManager sharedInstance] requsetWithLoginModel:loginModel complete:^(NSInteger result){
-        if(result) {
+        if(result == 1) {
+             IKSGTabBarController *tabvc = [[IKSGTabBarController alloc]init];
+             [IKGMUserManager sharedInstance].userName = loginModel.username;
              self.view.window.rootViewController = tabvc;
         }
     }];

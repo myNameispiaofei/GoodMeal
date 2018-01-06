@@ -23,6 +23,7 @@ typedef enum: NSInteger {
 
 - (void)clickCancleBtnAction;
 
+
 @end
 
 @interface IKGMAlertView : UIView
@@ -30,5 +31,7 @@ typedef enum: NSInteger {
 @property(nonatomic , weak) id< IKGMAlertViewDelegate>delegate;
 
 - (instancetype)initWithType:(IKGMAlertViewType)type;
+
+- (void)setTipName :(NSString *)name ;
 
 @end
