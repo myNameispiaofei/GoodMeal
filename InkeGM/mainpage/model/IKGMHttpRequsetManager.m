@@ -52,7 +52,6 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:loginModel.passwd forKey:@"passwd"];
     [params setObject:loginModel.username forKey:@"username"];
-    if(loginModel)
     [self.mar POST:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSError *error;
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];

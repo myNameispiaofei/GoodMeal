@@ -19,7 +19,7 @@
 @property (nonatomic ,strong) IKGMLoginView *loginView;
 @property (nonatomic ,strong) UIButton      *loginBtn;
 @property (nonatomic ,strong) UIImageView   *bgImageView;
-@property (nonatomic ,strong) UIView         *conterView;
+@property (nonatomic ,strong) UIView        *conterView;
 
 
 @end
@@ -44,7 +44,7 @@
     
     IKGMLoginView* loginView =[[IKGMLoginView alloc]init];
     [self.view addSubview:loginView];
-    self.loginView= loginView;
+    self.loginView = loginView;
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setTitle:@"登 录" forState: UIControlStateNormal];

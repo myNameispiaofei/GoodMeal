@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.2231441"
+            timestampString = "537119139.229803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-preparedish:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.223545"
+            timestampString = "537119139.2299089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-preparedish:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.223787"
+            timestampString = "537119139.229977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-preparedish:complete:"
             landmarkType = "7">
             <Locations>
@@ -58,11 +58,11 @@
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-                  timestampString = "536927604.791068"
+                  timestampString = "537118929.205303"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "150"
-                  endingLineNumber = "150"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
                   offsetFromSymbolStart = "244">
                </Location>
                <Location
@@ -73,11 +73,11 @@
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-                  timestampString = "536927604.792545"
+                  timestampString = "537118929.208937"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "150"
-                  endingLineNumber = "150"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
                   offsetFromSymbolStart = "56">
                </Location>
                <Location
@@ -88,11 +88,11 @@
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-                  timestampString = "536927604.794439"
+                  timestampString = "537118929.212438"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "150"
-                  endingLineNumber = "150"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
                   offsetFromSymbolStart = "36">
                </Location>
                <Location
@@ -103,11 +103,11 @@
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-                  timestampString = "536927604.795915"
+                  timestampString = "537118929.2158329"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
                   offsetFromSymbolStart = "80">
                </Location>
             </Locations>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.2240191"
+            timestampString = "537119139.2300479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "-orderGoodMeal:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.224241"
+            timestampString = "537119139.23014"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-orderGoodMeal:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.224465"
+            timestampString = "537119139.230222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "-orderGoodMeal:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.224687"
+            timestampString = "537119139.230289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-orderGoodMeal:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -200,7 +200,7 @@
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/controller/IKGMMainViewController.m"
-                  timestampString = "536927604.813068"
+                  timestampString = "537118929.253626"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "346"
@@ -215,7 +215,7 @@
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/controller/IKGMMainViewController.m"
-                  timestampString = "536927604.814523"
+                  timestampString = "537118929.2568229"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "346"
@@ -230,7 +230,7 @@
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/controller/IKGMMainViewController.m"
-                  timestampString = "536927604.815933"
+                  timestampString = "537118929.260077"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "346"
@@ -247,11 +247,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.2249711"
+            timestampString = "537119139.2304291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "-requseMenu:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -263,11 +263,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.225194"
+            timestampString = "537119139.230511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-requseMenu:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,11 +279,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.225413"
+            timestampString = "537119139.2305959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-requsetWithLoginModel:complete:"
             landmarkType = "7">
          </BreakpointContent>
@@ -324,43 +324,138 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InkeGM/login/controller/IKGMLoginController.m"
-            timestampString = "536927598.2257479"
+            filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
+            timestampString = "537119139.2307349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-clickLoginBtn"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-requsetWithLoginModel:complete:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InkeGM/login/view/IKGMLoginView.m"
+            timestampString = "537119139.230826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-layoutUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InkeGM/login/view/IKGMLoginView.m"
+            timestampString = "537119139.2312959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-layoutUI"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[IKGMLoginController clickLoginBtn]"
+                  symbolName = "__25-[IKGMLoginView layoutUI]_block_invoke.42"
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/controller/IKGMLoginController.m"
-                  timestampString = "536927604.833878"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.313096"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
-                  offsetFromSymbolStart = "420">
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "972">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__36-[IKGMLoginController clickLoginBtn]_block_invoke"
+                  symbolName = "__copy_helper_block_.50"
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/controller/IKGMLoginController.m"
-                  timestampString = "536927604.835779"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.3156101"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.51"
+                  moduleName = "InkeGM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.3183759"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InkeGM/login/view/IKGMLoginView.m"
+            timestampString = "537119139.231608"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-layoutUI"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[IKGMLoginView layoutUI]"
+                  moduleName = "InkeGM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.329414"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "516">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__25-[IKGMLoginView layoutUI]_block_invoke.60"
+                  moduleName = "InkeGM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.3322361"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -372,14 +467,94 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "536927598.22579"
+            filePath = "InkeGM/login/view/IKGMLoginView.m"
+            timestampString = "537119139.231896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-requsetWithLoginModel:complete:"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-layoutUI"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[IKGMLoginView layoutUI]"
+                  moduleName = "InkeGM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.341362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__25-[IKGMLoginView layoutUI]_block_invoke.64"
+                  moduleName = "InkeGM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.34446"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "InkeGM/login/view/IKGMLoginView.m"
+            timestampString = "537119139.2321841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-layoutUI"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[IKGMLoginView layoutUI]"
+                  moduleName = "InkeGM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.352098"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "836">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__25-[IKGMLoginView layoutUI]_block_invoke.68"
+                  moduleName = "InkeGM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/view/IKGMLoginView.m"
+                  timestampString = "537118929.355116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

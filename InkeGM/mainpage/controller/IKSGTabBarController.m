@@ -25,10 +25,9 @@
 
 -(void)loadControllers{
     
-    [self addChildVc:[[IKGMMainViewController alloc] init] title:@"主页" image:@"mainpage_no" selectedImage:@"mainpage"];
-    [self addChildVc:[[IKGMNoticeViewController alloc]init] title:@"通知" image:@"notice_no" selectedImage:@"notice"];
-    [self addChildVc:[[IKGMSurplusViewController alloc]init] title:@"备餐" image:@"food_no" selectedImage:@"food"];
-    [self addChildVc:[[IKGMHomepageController alloc]init] title:@"我的" image:@"home_no" selectedImage:@"home"];
+    [self addChildVc:[[IKGMSurplusViewController alloc]init] title:@"备餐" image:@"beican" selectedImage:@"beican_click"];
+    [self addChildVc:[[IKGMMainViewController alloc] init] title:@"点餐" image:@"book_food" selectedImage:@"book_click"];
+    [self addChildVc:[[IKGMHomepageController alloc]init] title:@"我" image:@"me" selectedImage:@"me_click"];
     
 }
 
