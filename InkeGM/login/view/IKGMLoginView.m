@@ -54,14 +54,14 @@
         make.height.mas_equalTo(25);
     }];
     [self.accountTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.accountImageView.mas_right).offset(3);
+        make.left.equalTo(self.accountImageView.mas_right).offset(15);
         make.right.equalTo(self.mas_right).offset(-47.5);
         make.bottom.top.mas_equalTo(self.accountImageView);
     }];
     [self.accountLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).offset(47.5);
         make.right.equalTo(self.mas_right).offset(-47.5);
-        make.top.equalTo(self.accountImageView.mas_bottom).offset(4.5);
+        make.top.equalTo(self.accountImageView.mas_bottom).offset(14);
         make.height.mas_equalTo(0.5);
     }];
     [self.passWordImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,7 +74,7 @@
     }];
     [self.passWordLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.width.height.equalTo(self.accountLineView);
-        make.top.equalTo(self.passWordImageView.mas_bottom).offset(4.5);
+        make.top.equalTo(self.passWordImageView.mas_bottom).offset(14);
     }];
   
 }
@@ -98,6 +98,9 @@
 - (UITextField *)accountTextField {
     if(!_accountTextField) {
         _accountTextField = [[UITextField alloc]init];
+        _accountTextField.placeholder = @"输入映客邮箱";
+        [_accountTextField setValue: k16RGBAColor(0xc58f00,0.6) forKeyPath:@"_placeholderLabel.textColor"];
+        [ _accountTextField setValue:[UIFont systemFontOfSize:18] forKeyPath:@"_placeholderLabel.font"];
     }
     return _accountTextField;
 }
@@ -105,6 +108,10 @@
 - (UITextField *)passWordTextField {
     if(!_passWordTextField) {
         _passWordTextField = [[UITextField alloc]init];
+        _passWordTextField.placeholder = @"输入映客邮箱密码";
+        [_passWordTextField setValue:k16RGBAColor(0xc58f00,0.6) forKeyPath:@"_placeholderLabel.textColor"];
+        [_passWordTextField setValue:[UIFont systemFontOfSize:18] forKeyPath:@"_placeholderLabel.font"];
+        ;
     }
     return _passWordTextField;
 }
@@ -113,7 +120,7 @@
     if(!_passWordLineView)
     {
         _passWordLineView = [[UIView alloc]init];
-        _passWordLineView.backgroundColor = k16RGBColor(0x979797);
+        _passWordLineView.backgroundColor = k16RGBColor(0xeaaa00);
     }
     return _passWordLineView;
 }
@@ -121,7 +128,7 @@
 - (UIView *)accountLineView {
     if(!_accountLineView) {
         _accountLineView = [[UIView alloc]init];
-        _accountLineView.backgroundColor = k16RGBColor(0x979797);
+        _accountLineView.backgroundColor = k16RGBColor(0xeaaa00);
     }
     return _accountLineView;
 }

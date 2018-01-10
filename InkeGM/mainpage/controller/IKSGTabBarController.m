@@ -10,6 +10,7 @@
 #import "IKGMHomepageController.h"
 #import "IKGMMainViewController.h"
 #import "IKGMNoticeViewController.h"
+#import "IKGMMainPageViewController.h"
 #import "IKGMSurplusViewController.h"
 @interface IKSGTabBarController ()
 
@@ -26,7 +27,9 @@
 -(void)loadControllers{
     
     [self addChildVc:[[IKGMSurplusViewController alloc]init] title:@"备餐" image:@"beican" selectedImage:@"beican_click"];
-    [self addChildVc:[[IKGMMainViewController alloc] init] title:@"点餐" image:@"book_food" selectedImage:@"book_click"];
+    
+    //IKGMMainViewController
+    [self addChildVc:[[IKGMMainPageViewController alloc] init] title:@"点餐" image:@"book_food" selectedImage:@"book_click"];
     [self addChildVc:[[IKGMHomepageController alloc]init] title:@"我" image:@"me" selectedImage:@"me_click"];
     
 }

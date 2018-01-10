@@ -36,7 +36,7 @@
 
 @interface IKGMDishModel : NSObject
 
-@property (nonatomic ,copy)   NSString * dishName;
+@property (nonatomic ,copy)   NSString *dishName;
 @property (nonatomic ,assign) NSInteger dishId;
 @property (nonatomic ,assign) NSInteger boxPriceInCent;
 @property (nonatomic ,assign) NSInteger priceInCent;

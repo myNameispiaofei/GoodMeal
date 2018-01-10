@@ -48,8 +48,9 @@
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [loginBtn setTitle:@"登 录" forState: UIControlStateNormal];
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:19];
     [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [loginBtn setBackgroundColor:k16RGBColor(0xFF8C00)];
+    [loginBtn setBackgroundColor:k16RGBColor(0x9d7200)];
     loginBtn.layer.cornerRadius =24.5;
     loginBtn.layer.masksToBounds = YES;
     [loginBtn addTarget:self action:@selector(clickLoginBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -61,14 +62,14 @@
     
     [self.loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view.mas_top).offset(350);
+        make.top.equalTo(self.view.mas_top).offset(268.5);
         make.height.mas_equalTo(120);
     }];
     [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(39);
         make.right.equalTo(self.view.mas_right).offset(-19);
         make.height.mas_equalTo(49);
-        make.top.equalTo(self.loginView.mas_bottom).offset(25);
+        make.top.equalTo(self.loginView.mas_bottom).offset(44);
         
     }];
     

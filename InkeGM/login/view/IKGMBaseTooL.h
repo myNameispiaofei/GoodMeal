@@ -7,6 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#ifndef IKGMBaseTooL_h
+#define IKGMBaseTooL_h
+
+extern BOOL gIsIphoneX(void);
+extern CGFloat gNavAreaHeight(void);
+extern CGFloat gTabBarHeight(void);
+
+extern CGFloat const IKNavBarHeight; //44
+extern CGFloat const IKTabNormalHeight; //49
+
+#define IKIsIphoneX gIsIphoneX()
+#define IKNavAreaHeight gNavAreaHeight() //88
+#define IKTabBarHeight gTabBarHeight() //83
+#define IKNavStartY (IKNavAreaHeight - IKNavBarHeight) // 44
+#define IKBottomSafeEdge (IKTabBarHeight - IKTabNormalHeight) // 34
 
 
 #define RES_OK(sel) (self.delegate && [self.delegate respondsToSelector:sel])
@@ -55,7 +72,7 @@ alpha:(a)])
 #define kRate  kScreenWidth / 375.0
 
 
-
+#endif
 
 @interface IKGMBaseTooL : NSObject
 
