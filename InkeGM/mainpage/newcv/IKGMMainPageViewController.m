@@ -88,7 +88,7 @@
         make.left.equalTo(self.view.mas_left).offset(94);
         make.width.mas_equalTo(23);
         make.height.mas_equalTo(22.5);
-        make.top.mas_equalTo(self.view.mas_top).offset(36);
+        make.top.mas_equalTo(self.view.mas_top).offset(36 + IKNavStartY);
     }];
     [self.dateMsgLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.centerY.mas_equalTo(self.calendarImageView);
@@ -120,7 +120,7 @@
 
 - (IKGMMainPageScrollViwe *)dinnerScrollView {
     if(!_dinnerScrollView) {
-        _dinnerScrollView = [[IKGMMainPageScrollViwe alloc] initWithFrame:CGRectMake(0,84,kScreenWidth,504)];
+        _dinnerScrollView = [[IKGMMainPageScrollViwe alloc] initWithFrame:CGRectMake(0,84 + IKNavStartY,kScreenWidth,504)];
         _dinnerScrollView.contentSize = CGSizeMake(kScreenWidth * self.storeList.count,_dinnerScrollView.frame.size.height);
         _dinnerScrollView.contentOffset = CGPointMake(kScreenWidth, 0);
         _dinnerScrollView.pagingEnabled = YES;
