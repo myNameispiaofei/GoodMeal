@@ -46,6 +46,8 @@
 		5E4C1DBE200479A900BEEDCF /* IKGMStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1DBD200479A900BEEDCF /* IKGMStoreViewController.m */; };
 		5E4C1DC120047E8600BEEDCF /* IKGMDishTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1DC020047E8600BEEDCF /* IKGMDishTableViewCell.m */; };
 		5E5413482007024F00D19617 /* IKGMSettingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5413472007024F00D19617 /* IKGMSettingCollectionViewCell.m */; };
+		5E54134E20070EBE00D19617 /* IKMeCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E54134D20070EBE00D19617 /* IKMeCollectionViewItem.m */; };
+		5E541351200751CE00D19617 /* IKGMPushInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E541350200751CE00D19617 /* IKGMPushInfoManager.m */; };
 		5E6F1AF52006469C00F1945D /* IKGMMePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6F1AF42006469C00F1945D /* IKGMMePageViewController.m */; };
 		5E850A021FE63C3400A8E4C5 /* IKGMRestaurantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E850A011FE63C3400A8E4C5 /* IKGMRestaurantModel.m */; };
 		5E850A051FE6565500A8E4C5 /* IKGMRestaurantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E850A041FE6565500A8E4C5 /* IKGMRestaurantCollectionViewCell.m */; };
@@ -146,6 +148,10 @@
 		5E4C1DC020047E8600BEEDCF /* IKGMDishTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMDishTableViewCell.m; sourceTree = "<group>"; };
 		5E5413462007024F00D19617 /* IKGMSettingCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMSettingCollectionViewCell.h; sourceTree = "<group>"; };
 		5E5413472007024F00D19617 /* IKGMSettingCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMSettingCollectionViewCell.m; sourceTree = "<group>"; };
+		5E54134C20070EBE00D19617 /* IKMeCollectionViewItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKMeCollectionViewItem.h; sourceTree = "<group>"; };
+		5E54134D20070EBE00D19617 /* IKMeCollectionViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKMeCollectionViewItem.m; sourceTree = "<group>"; };
+		5E54134F200751CE00D19617 /* IKGMPushInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMPushInfoManager.h; sourceTree = "<group>"; };
+		5E541350200751CE00D19617 /* IKGMPushInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMPushInfoManager.m; sourceTree = "<group>"; };
 		5E6F1AF32006469C00F1945D /* IKGMMePageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMMePageViewController.h; sourceTree = "<group>"; };
 		5E6F1AF42006469C00F1945D /* IKGMMePageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMMePageViewController.m; sourceTree = "<group>"; };
 		5E850A001FE63C3400A8E4C5 /* IKGMRestaurantModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMRestaurantModel.h; sourceTree = "<group>"; };
@@ -493,8 +499,6 @@
 				5E8949401FDFE26F00F8994B /* IKGMHomepageController.m */,
 				5E6F1AF32006469C00F1945D /* IKGMMePageViewController.h */,
 				5E6F1AF42006469C00F1945D /* IKGMMePageViewController.m */,
-				5E5413462007024F00D19617 /* IKGMSettingCollectionViewCell.h */,
-				5E5413472007024F00D19617 /* IKGMSettingCollectionViewCell.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -502,6 +506,10 @@
 		5E8949411FDFE26F00F8994B /* model */ = {
 			isa = PBXGroup;
 			children = (
+				5E54134C20070EBE00D19617 /* IKMeCollectionViewItem.h */,
+				5E54134D20070EBE00D19617 /* IKMeCollectionViewItem.m */,
+				5E54134F200751CE00D19617 /* IKGMPushInfoManager.h */,
+				5E541350200751CE00D19617 /* IKGMPushInfoManager.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -509,6 +517,8 @@
 		5E8949421FDFE26F00F8994B /* view */ = {
 			isa = PBXGroup;
 			children = (
+				5E5413462007024F00D19617 /* IKGMSettingCollectionViewCell.h */,
+				5E5413472007024F00D19617 /* IKGMSettingCollectionViewCell.m */,
 				5E8949431FDFE26F00F8994B /* IKGMHomePageSetingCell.h */,
 				5E8949441FDFE26F00F8994B /* IKGMHomePageSetingCell.m */,
 				5E8949451FDFE26F00F8994B /* IKGMHomeTableViewCell.h */,
@@ -808,12 +818,14 @@
 				5E5413482007024F00D19617 /* IKGMSettingCollectionViewCell.m in Sources */,
 				5E8949491FDFE26F00F8994B /* IKGMHomeTableViewCell.m in Sources */,
 				5E8949681FDFE86500F8994B /* AppDelegate.m in Sources */,
+				5E54134E20070EBE00D19617 /* IKMeCollectionViewItem.m in Sources */,
 				5E8949071FDFE22200F8994B /* IKMGAlertViewController.m in Sources */,
 				5E850A021FE63C3400A8E4C5 /* IKGMRestaurantModel.m in Sources */,
 				5E89493B1FDFE24E00F8994B /* IKGMSurplusViewController.m in Sources */,
 				5E850A071FE658DE00A8E4C5 /* IKGMMainViewController.m in Sources */,
 				5E89490A1FDFE22200F8994B /* IKGMLastSelectIndexModel.m in Sources */,
 				5E8B1F331FEE417B002C9180 /* IKGMAppConfig.m in Sources */,
+				5E541351200751CE00D19617 /* IKGMPushInfoManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

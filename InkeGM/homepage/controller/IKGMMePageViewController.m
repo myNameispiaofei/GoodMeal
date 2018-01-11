@@ -7,6 +7,8 @@
 //
 
 #import "IKGMBaseTooL.h"
+#import "IKGMPushInfoManager.h"
+#import "IKMeCollectionViewItem.h"
 #import "IKGMMePageViewController.h"
 #import "IKGMSettingCollectionViewCell.h"
 
@@ -14,10 +16,11 @@
 @class IKGMMePageHeaderView;
 
 static NSString *cellIdentify = @"cellIdentify";
-@interface IKGMMePageViewController () <UICollectionViewDelegate ,UICollectionViewDataSource>
+@interface IKGMMePageViewController () <UICollectionViewDelegate ,UICollectionViewDataSource,IKGMSettingCollectionViewCellDelegate>
 
 @property (nonatomic , strong)UICollectionView * settingCollectionView;
 @property (nonatomic , strong)IKGMMePageHeaderView * headerView;
+@property (nonatomic , strong)NSMutableArray *dataArray;
 
 @end
 
@@ -25,7 +28,8 @@ static NSString *cellIdentify = @"cellIdentify";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self  layoutUI];
+    [self initCellItems];
+    [self layoutUI];
   
 }
 
@@ -43,14 +47,19 @@ static NSString *cellIdentify = @"cellIdentify";
     self.settingCollectionView.backgroundColor = k16RGBColor(0xffffff);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-   
+
+
+#pragma  -mark IKGMSettingCollectionViewCellDelegate
+
+- (void) clikBookRemind {
+    [IKGMPushInfoManager sharedInstance].isBookRemain = ![IKGMPushInfoManager sharedInstance].isBookRemain;
+    
 }
 
-- (CGSize)itemSize {
-    return CGSizeMake(kScreenWidth -30, 54);
+- (void)clickReachRemind {
+    [IKGMPushInfoManager sharedInstance].isReachRemain = ![IKGMPushInfoManager sharedInstance].isReachRemain;
 }
+
 #pragma   -mark CollectionViewdelagate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -58,12 +67,15 @@ static NSString *cellIdentify = @"cellIdentify";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return  5;
+    return  self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView  cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     IKGMSettingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentify forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    [cell setSettingItem:self.dataArray[indexPath.row]];
+    cell.layer.cornerRadius = 4;
+    cell.backgroundColor = k16RGBColor(0xf5f4f0);
+    cell.delegate = self;
     return cell;
 }
 
@@ -81,8 +93,80 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0  ;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-   
+    IKMeCollectionViewItem * item = self.dataArray[indexPath.row];
+    switch (item.type) {
+        case IKMeSettingBookRemind:
+        case IKMeSettingReachRemind:
+        break;
+        case IKMeSettingRule:
+        {
+          // do
+        }
+        break;
+        case IKMeSettingAdministrator:
+        {
+          
+           // do
+        }
+        break;
+        case IKMeSettingSignout:
+        {
+           // do login
+        }
+        default:
+            break;
+    }
+    
+}
+
+#pragma -mark initCell item
+
+- (void)initCellItems {
+    self.dataArray = [NSMutableArray array];
+    IKMeCollectionViewItem *bookRemind  = [[IKMeCollectionViewItem alloc]initWithTitle:@"点餐提醒"
+                                                                              subTitle:@"工作日17:00 发送通知"
+                                                                          lefticonName:@"book_tips"
+                                                                         rightIconName:@"switch_on"
+                                                                           centerTitle:nil
+                                                                              itmetype:IKMeSettingBookRemind];
+    [self.dataArray addObject:bookRemind];
+    IKMeCollectionViewItem *reachRemind  = [[IKMeCollectionViewItem alloc]initWithTitle:@"到餐提醒"
+                                                                              subTitle:@"工作日的到餐提醒"
+                                                                          lefticonName:@"book_tips"
+                                                                         rightIconName:@"switch_off"
+                                                                           centerTitle:nil
+                                                                              itmetype:IKMeSettingReachRemind];
+    [self.dataArray addObject:reachRemind];
+    IKMeCollectionViewItem *ruleItem  = [[IKMeCollectionViewItem alloc]initWithTitle:@"点餐规则"
+                                                                               subTitle:nil
+                                                                           lefticonName:@"book_rule"
+                                                                          rightIconName:nil
+                                                                            centerTitle:nil
+                                                                               itmetype:IKMeSettingRule];
+    [self.dataArray addObject:ruleItem];
+    IKMeCollectionViewItem *administrator = [[IKMeCollectionViewItem alloc]initWithTitle:@"我是管理员"
+                                                                            subTitle:nil
+                                                                        lefticonName:@"administrators"
+                                                                       rightIconName:nil
+                                                                         centerTitle:nil
+                                                                              itmetype:IKMeSettingAdministrator];
+    [self.dataArray addObject:administrator];
+    IKMeCollectionViewItem *signout= [[IKMeCollectionViewItem alloc]initWithTitle:nil
+                                                                         subTitle:nil
+                                                                     lefticonName:nil
+                                                                    rightIconName:nil
+                                                                      centerTitle:@"退出登录"
+                                                                                itmetype:IKMeSettingSignout];
+    [self.dataArray addObject:signout];
 }
 
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+}
+
+- (CGSize)itemSize {
+    return CGSizeMake(kScreenWidth -30, 54);
+}
 @end
