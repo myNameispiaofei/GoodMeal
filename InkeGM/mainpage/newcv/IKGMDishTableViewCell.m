@@ -23,10 +23,10 @@
    
 }
 
-
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if( self) {
         [self layoutUI];
     }
     return self;
@@ -44,7 +44,7 @@
     [self.contentView addSubview:self.subTitleLable];
     [self.subTitleLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.dishTitleLabel);
-        make.top.equalTo(self.dishTitleLabel).offset(6);
+        make.top.equalTo(self.dishTitleLabel.mas_bottom).offset(6);
         make.height.mas_equalTo(13);
     }];
 }

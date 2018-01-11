@@ -32,6 +32,8 @@ static NSString *cellIdentifier = @"identifier" ;
 
 - (void)viewDidLoad {
     [self configUI];
+    self.foodListTableView.layer.cornerRadius = 6;
+    self.foodListTableView.layer.masksToBounds = YES;
     
    
 }
@@ -39,8 +41,7 @@ static NSString *cellIdentifier = @"identifier" ;
 #pragma -mark tabelView datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return   self.model.sectionList[0].dishList.count;
-    
+    return  self.model.sectionList[0].dishList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,7 +60,7 @@ static NSString *cellIdentifier = @"identifier" ;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 60;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Header"];
@@ -81,7 +82,9 @@ static NSString *cellIdentifier = @"identifier" ;
 - (void)configUI {
     [self.view addSubview:self.foodListTableView];
     [self.foodListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.top.equalTo(self.view);
+        make.bottom.top.equalTo(self.view);
+        make.left.equalTo(self.view.mas_left).offset(27);
+        make.right.equalTo(self.view.mas_right).offset(-27);
     }];
 }
 
@@ -90,6 +93,7 @@ static NSString *cellIdentifier = @"identifier" ;
         _foodListTableView = [[UITableView alloc]init];
         _foodListTableView.delegate = self;
         _foodListTableView.dataSource = self;
+        _foodListTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _foodListTableView;
 }

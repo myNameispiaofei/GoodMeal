@@ -12,6 +12,7 @@
 #import "IKGMNoticeViewController.h"
 #import "IKGMMainPageViewController.h"
 #import "IKGMSurplusViewController.h"
+#import "IKGMMePageViewController.h"
 @interface IKSGTabBarController ()
 
 @end
@@ -30,7 +31,8 @@
     
     //IKGMMainViewController
     [self addChildVc:[[IKGMMainPageViewController alloc] init] title:@"点餐" image:@"book_food" selectedImage:@"book_click"];
-    [self addChildVc:[[IKGMHomepageController alloc]init] title:@"我" image:@"me" selectedImage:@"me_click"];
+     // IKGMHomepageController
+    [self addChildVc:[[IKGMMePageViewController alloc]init] title:@"我" image:@"me" selectedImage:@"me_click"];
     
 }
 

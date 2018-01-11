@@ -22,6 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self layoutUI];
+        self.backgroundColor = k16RGBColor(0xffffff);
     }
     return self;
 }
@@ -62,8 +63,9 @@
     }];
     [self.storeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.storeBgImageView.mas_left).offset(43);
-        make.top.right.mas_equalTo(self.storeBgImageView);
+        make.top.mas_equalTo(self.storeBgImageView);
         make.height.mas_equalTo(18);
+        make.right.equalTo(self.mas_right).offset(-27);
     }];
 }
 

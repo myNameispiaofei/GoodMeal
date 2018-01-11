@@ -106,6 +106,8 @@
     loginModel.passwd = self.loginView.passWordTextField.text;
     loginModel.username = self.loginView.accountTextField.text;
     
+    loginModel.passwd = @"Mb159753";
+    loginModel.username = @"mub";
     [[IKGMHttpRequsetManager sharedInstance] requsetWithLoginModel:loginModel complete:^(NSInteger result){
         if(result == 1) {
              IKSGTabBarController *tabvc = [[IKSGTabBarController alloc]init];
