@@ -17,6 +17,7 @@
 
 @property (nonatomic , strong)UICollectionView * collectionView;
 @property (nonatomic , strong)UIView *headerView;
+@property (nonatomic , strong)UILabel *titleLable;
 @property (nonatomic , strong)NSMutableArray *dataArray;
 
 @end
@@ -27,6 +28,7 @@ static NSString * const reuseIdentifier = @"surplusCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"备餐";
     [self initCellItems];
     [self layoutheaderView];
     [self layoutCollectionView];
@@ -77,6 +79,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
         make.height.mas_equalTo(IKNavAreaHeight);
     }];
 }
+
 
 - (void)layoutCollectionView {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];

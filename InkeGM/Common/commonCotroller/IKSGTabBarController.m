@@ -7,11 +7,11 @@
 //
 
 #import "IKSGTabBarController.h"
-#import "IKGMMainViewController.h"
 #import "IKGMNoticeViewController.h"
 #import "IKGMMainPageViewController.h"
 #import "IKGMSurplusViewController.h"
 #import "IKGMMePageViewController.h"
+
 @interface IKSGTabBarController ()
 
 @end

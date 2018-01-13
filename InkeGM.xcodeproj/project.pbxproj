@@ -59,13 +59,11 @@
 		5E6F1AF52006469C00F1945D /* IKGMMePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6F1AF42006469C00F1945D /* IKGMMePageViewController.m */; };
 		5E850A021FE63C3400A8E4C5 /* IKGMRestaurantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E850A011FE63C3400A8E4C5 /* IKGMRestaurantModel.m */; };
 		5E850A051FE6565500A8E4C5 /* IKGMRestaurantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E850A041FE6565500A8E4C5 /* IKGMRestaurantCollectionViewCell.m */; };
-		5E850A071FE658DE00A8E4C5 /* IKGMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E850A061FE658DE00A8E4C5 /* IKGMMainViewController.m */; };
 		5E8948241FDFDE0700F8994B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8948231FDFDE0700F8994B /* ViewController.m */; };
 		5E8948271FDFDE0700F8994B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E8948251FDFDE0700F8994B /* Main.storyboard */; };
 		5E8948291FDFDE0700F8994B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E8948281FDFDE0700F8994B /* Assets.xcassets */; };
 		5E89482C1FDFDE0700F8994B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E89482A1FDFDE0700F8994B /* LaunchScreen.storyboard */; };
 		5E89482F1FDFDE0700F8994B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E89482E1FDFDE0700F8994B /* main.m */; };
-		5E8949071FDFE22200F8994B /* IKMGAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8948F31FDFE22200F8994B /* IKMGAlertViewController.m */; };
 		5E8949081FDFE22200F8994B /* IKSGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8948F51FDFE22200F8994B /* IKSGTabBarController.m */; };
 		5E8949091FDFE22200F8994B /* IKGMHttpRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8948F81FDFE22200F8994B /* IKGMHttpRequsetManager.m */; };
 		5E89490A1FDFE22200F8994B /* IKGMLastSelectIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8948FA1FDFE22200F8994B /* IKGMLastSelectIndexModel.m */; };
@@ -90,7 +88,6 @@
 		5E8949301FDFE23A00F8994B /* notice@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E89491F1FDFE23A00F8994B /* notice@3x.png */; };
 		5E8949311FDFE23A00F8994B /* notice_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8949201FDFE23A00F8994B /* notice_no@2x.png */; };
 		5E8949321FDFE23A00F8994B /* notice_no@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8949211FDFE23A00F8994B /* notice_no@3x.png */; };
-		5E89493C1FDFE24E00F8994B /* IKGMSurplusHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E89493A1FDFE24E00F8994B /* IKGMSurplusHeaderView.m */; };
 		5E8949481FDFE26F00F8994B /* IKGMHomePageSetingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8949441FDFE26F00F8994B /* IKGMHomePageSetingCell.m */; };
 		5E8949491FDFE26F00F8994B /* IKGMHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8949461FDFE26F00F8994B /* IKGMHomeTableViewCell.m */; };
 		5E8949511FDFE29300F8994B /* IKGMNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E89494D1FDFE29300F8994B /* IKGMNoticeViewController.m */; };
@@ -180,7 +177,6 @@
 		5E850A011FE63C3400A8E4C5 /* IKGMRestaurantModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMRestaurantModel.m; sourceTree = "<group>"; };
 		5E850A031FE6565500A8E4C5 /* IKGMRestaurantCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IKGMRestaurantCollectionViewCell.h; sourceTree = "<group>"; };
 		5E850A041FE6565500A8E4C5 /* IKGMRestaurantCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IKGMRestaurantCollectionViewCell.m; sourceTree = "<group>"; };
-		5E850A061FE658DE00A8E4C5 /* IKGMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKGMMainViewController.m; sourceTree = "<group>"; };
 		5E89481C1FDFDE0700F8994B /* InkeGM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkeGM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E89481F1FDFDE0700F8994B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E8948221FDFDE0700F8994B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -190,9 +186,6 @@
 		5E89482B1FDFDE0700F8994B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E89482D1FDFDE0700F8994B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E89482E1FDFDE0700F8994B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5E8948F01FDFE22200F8994B /* IKGMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKGMMainViewController.h; sourceTree = "<group>"; };
-		5E8948F21FDFE22200F8994B /* IKMGAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKMGAlertViewController.h; sourceTree = "<group>"; };
-		5E8948F31FDFE22200F8994B /* IKMGAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKMGAlertViewController.m; sourceTree = "<group>"; };
 		5E8948F41FDFE22200F8994B /* IKSGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKSGTabBarController.h; sourceTree = "<group>"; };
 		5E8948F51FDFE22200F8994B /* IKSGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKSGTabBarController.m; sourceTree = "<group>"; };
 		5E8948F71FDFE22200F8994B /* IKGMHttpRequsetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKGMHttpRequsetManager.h; sourceTree = "<group>"; };
@@ -224,8 +217,6 @@
 		5E89491F1FDFE23A00F8994B /* notice@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice@3x.png"; sourceTree = "<group>"; };
 		5E8949201FDFE23A00F8994B /* notice_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice_no@2x.png"; sourceTree = "<group>"; };
 		5E8949211FDFE23A00F8994B /* notice_no@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notice_no@3x.png"; sourceTree = "<group>"; };
-		5E8949391FDFE24E00F8994B /* IKGMSurplusHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKGMSurplusHeaderView.h; sourceTree = "<group>"; };
-		5E89493A1FDFE24E00F8994B /* IKGMSurplusHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKGMSurplusHeaderView.m; sourceTree = "<group>"; };
 		5E8949431FDFE26F00F8994B /* IKGMHomePageSetingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKGMHomePageSetingCell.h; sourceTree = "<group>"; };
 		5E8949441FDFE26F00F8994B /* IKGMHomePageSetingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKGMHomePageSetingCell.m; sourceTree = "<group>"; };
 		5E8949451FDFE26F00F8994B /* IKGMHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKGMHomeTableViewCell.h; sourceTree = "<group>"; };
@@ -335,6 +326,37 @@
 			path = newcv;
 			sourceTree = "<group>";
 		};
+		5E6283FB2009F86500E0E8B8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5E6283FD2009F92400E0E8B8 /* commonCotroller */,
+				5E6283FC2009F87600E0E8B8 /* commonView */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5E6283FC2009F87600E0E8B8 /* commonView */ = {
+			isa = PBXGroup;
+			children = (
+				5E4CF8D12008EFCE00DB9B8B /* IKCommonDishView.h */,
+				5E4CF8D22008EFCE00DB9B8B /* IKCommonDishView.m */,
+				5E4CF8D42008F33A00DB9B8B /* IKGMCommonAlertHeaderView.h */,
+				5E4CF8D52008F33A00DB9B8B /* IKGMCommonAlertHeaderView.m */,
+				5E4CF8DE2009003600DB9B8B /* IKGMCommonAlertView.h */,
+				5E4CF8DF2009003600DB9B8B /* IKGMCommonAlertView.m */,
+			);
+			path = commonView;
+			sourceTree = "<group>";
+		};
+		5E6283FD2009F92400E0E8B8 /* commonCotroller */ = {
+			isa = PBXGroup;
+			children = (
+				5E8948F51FDFE22200F8994B /* IKSGTabBarController.m */,
+				5E8948F41FDFE22200F8994B /* IKSGTabBarController.h */,
+			);
+			path = commonCotroller;
+			sourceTree = "<group>";
+		};
 		5E8948131FDFDE0700F8994B = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +378,7 @@
 		5E89481E1FDFDE0700F8994B /* InkeGM */ = {
 			isa = PBXGroup;
 			children = (
+				5E6283FB2009F86500E0E8B8 /* Common */,
 				5E8949531FDFE2E500F8994B /* login */,
 				5E89494A1FDFE29300F8994B /* notice */,
 				5E89493D1FDFE26F00F8994B /* homepage */,
@@ -389,24 +412,10 @@
 			isa = PBXGroup;
 			children = (
 				5E4C1DB42004722200BEEDCF /* newcv */,
-				5E8948EF1FDFE22200F8994B /* controller */,
 				5E8948F61FDFE22200F8994B /* model */,
 				5E8948FD1FDFE22200F8994B /* view */,
 			);
 			path = mainpage;
-			sourceTree = "<group>";
-		};
-		5E8948EF1FDFE22200F8994B /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				5E8948F01FDFE22200F8994B /* IKGMMainViewController.h */,
-				5E850A061FE658DE00A8E4C5 /* IKGMMainViewController.m */,
-				5E8948F21FDFE22200F8994B /* IKMGAlertViewController.h */,
-				5E8948F31FDFE22200F8994B /* IKMGAlertViewController.m */,
-				5E8948F41FDFE22200F8994B /* IKSGTabBarController.h */,
-				5E8948F51FDFE22200F8994B /* IKSGTabBarController.m */,
-			);
-			path = controller;
 			sourceTree = "<group>";
 		};
 		5E8948F61FDFE22200F8994B /* model */ = {
@@ -478,8 +487,6 @@
 		5E8949341FDFE24E00F8994B /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				5E4CF8CE2008E31400DB9B8B /* IKGMSurplusCollectionViewCell.h */,
-				5E4CF8CF2008E31400DB9B8B /* IKGMSurplusCollectionViewCell.m */,
 				5E6283F52009ECAE00E0E8B8 /* IKGMSurplusViewController.h */,
 				5E6283F62009ECAE00E0E8B8 /* IKGMSurplusViewController.m */,
 			);
@@ -498,14 +505,8 @@
 		5E8949381FDFE24E00F8994B /* view */ = {
 			isa = PBXGroup;
 			children = (
-				5E8949391FDFE24E00F8994B /* IKGMSurplusHeaderView.h */,
-				5E89493A1FDFE24E00F8994B /* IKGMSurplusHeaderView.m */,
-				5E4CF8D12008EFCE00DB9B8B /* IKCommonDishView.h */,
-				5E4CF8D22008EFCE00DB9B8B /* IKCommonDishView.m */,
-				5E4CF8D42008F33A00DB9B8B /* IKGMCommonAlertHeaderView.h */,
-				5E4CF8D52008F33A00DB9B8B /* IKGMCommonAlertHeaderView.m */,
-				5E4CF8DE2009003600DB9B8B /* IKGMCommonAlertView.h */,
-				5E4CF8DF2009003600DB9B8B /* IKGMCommonAlertView.m */,
+				5E4CF8CE2008E31400DB9B8B /* IKGMSurplusCollectionViewCell.h */,
+				5E4CF8CF2008E31400DB9B8B /* IKGMSurplusCollectionViewCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -827,7 +828,6 @@
 				5E4C1DC120047E8600BEEDCF /* IKGMDishTableViewCell.m in Sources */,
 				5E89495F1FDFE2E500F8994B /* IKGMLoginController.m in Sources */,
 				5E8B1F2F1FEE32D9002C9180 /* IKGMLoginModel.m in Sources */,
-				5E89493C1FDFE24E00F8994B /* IKGMSurplusHeaderView.m in Sources */,
 				5E4C1DBE200479A900BEEDCF /* IKGMStoreViewController.m in Sources */,
 				5EF0E4A22004AD620096625C /* IKGMTableHeaderView.m in Sources */,
 				5E8949511FDFE29300F8994B /* IKGMNoticeViewController.m in Sources */,
@@ -855,9 +855,7 @@
 				5E8949491FDFE26F00F8994B /* IKGMHomeTableViewCell.m in Sources */,
 				5E8949681FDFE86500F8994B /* AppDelegate.m in Sources */,
 				5E54134E20070EBE00D19617 /* IKMeCollectionViewItem.m in Sources */,
-				5E8949071FDFE22200F8994B /* IKMGAlertViewController.m in Sources */,
 				5E850A021FE63C3400A8E4C5 /* IKGMRestaurantModel.m in Sources */,
-				5E850A071FE658DE00A8E4C5 /* IKGMMainViewController.m in Sources */,
 				5E89490A1FDFE22200F8994B /* IKGMLastSelectIndexModel.m in Sources */,
 				5E8B1F331FEE417B002C9180 /* IKGMAppConfig.m in Sources */,
 				5E541351200751CE00D19617 /* IKGMPushInfoManager.m in Sources */,
