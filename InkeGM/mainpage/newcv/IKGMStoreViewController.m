@@ -17,14 +17,16 @@ static NSString *cellIdentifier = @"identifier" ;
 
 @property (nonatomic ,strong) UITableView *foodListTableView;
 @property (nonatomic ,strong) IKGMRestaurantModel *model;
+@property (nonatomic ,assign) NSInteger indexAtStoreList;
 
 @end
 
 @implementation IKGMStoreViewController
 
-- (instancetype)initWithRestaurantModel:(IKGMRestaurantModel *)model {
+- (instancetype)initWithRestaurantModel:(IKGMRestaurantModel *)model index:(NSInteger)index {
     if (self = [super init]) {
         self.model = model;
+        self.indexAtStoreList = index;
     }
     return self;
 }
@@ -50,7 +52,37 @@ static NSString *cellIdentifier = @"identifier" ;
         cell = [[IKGMDishTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     [cell setDishModel:self.model.sectionList[0].dishList[indexPath.row]];
+    switch (self.model.type) {
+        case IKGMStoreClickType:
+        {
+            if(indexPath.row == self.model.clickDishIndex){
+               [cell setCellStyle:IKGMDishCellClickStyle];
+            }else{
+              [cell setCellStyle:IKGMDishCellForbidClickStyle];
+            }
+        }
+        break;
+        case IKGMStoreForbidClickType :
+        {
+            [cell setCellStyle:IKGMDishCellForbidClickStyle];
+        }
+        break;
+        case IKGMStoreNormalType:
+        {
+            [cell setCellStyle:IKGMDishCellNormalStyle];
+        }
+        break;
+        default:
+            break;
+    }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.delegate &&[self.delegate respondsToSelector:(@selector(changeStatusForClick:dishIndex:))]) {
+        [self.delegate changeStatusForClick:self.indexAtStoreList dishIndex:indexPath.row];
+    }
+    
 }
 
 #pragma -mark tableViewDelegate
@@ -68,6 +100,7 @@ static NSString *cellIdentifier = @"identifier" ;
         header = [[IKGMTableHeaderView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
     }
     [(IKGMTableHeaderView *)header setStoreName:self.model.restaurantName];
+    
     return header;
 }
 
@@ -98,5 +131,10 @@ static NSString *cellIdentifier = @"identifier" ;
     return _foodListTableView;
 }
 
+- (void)needReloadData {
+    if(self.foodListTableView) {
+        [self.foodListTableView reloadData];
+    }
+}
 
 @end

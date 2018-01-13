@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import <Masonry.h>
 #import "IKGMLoginController.h"
-#import "IKGMHomepageController.h"
 @interface AppDelegate ()
 
 @end

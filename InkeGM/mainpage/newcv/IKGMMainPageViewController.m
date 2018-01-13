@@ -16,11 +16,14 @@
 #import "IKGMRestaurantModel.h"
 #import "IKGMStoreViewController.h"
 
-@interface IKGMMainPageViewController ()<UIScrollViewDelegate>
+@interface IKGMMainPageViewController ()<UIScrollViewDelegate,IKGMStoreViewControllerDelegae>
 @property (nonatomic,strong)UIImageView *calendarImageView;
 @property (nonatomic,strong)UILabel *dateMsgLabel;
 @property (nonatomic,strong)IKGMMainPageScrollViwe *dinnerScrollView;
 @property (nonatomic ,strong)NSMutableArray<IKGMRestaurantModel*>* storeList;
+@property (nonatomic ,assign) NSInteger clickStoreIndex;
+@property (nonatomic ,assign) NSInteger clickDishIndex;
+@property (nonatomic ,assign) BOOL isBooked;
 
 
 @end
@@ -55,8 +58,9 @@
 - (void)mainPageInit {
     
     for (int index = 0 ;index < _storeList.count ; index++) {
-        IKGMStoreViewController *storeCV = [[IKGMStoreViewController alloc]initWithRestaurantModel:_storeList[index]];
+        IKGMStoreViewController *storeCV = [[IKGMStoreViewController alloc]initWithRestaurantModel:_storeList[index] index:index];
         [self addChildViewController:storeCV];
+        storeCV.delegate = self;
         [self.dinnerScrollView addSubview:storeCV.view];
         storeCV.view.frame = CGRectMake(index *kScreenWidth , 0, kScreenWidth, 504);
     }
@@ -139,13 +143,37 @@
     self.dinnerScrollView.isDragging = YES;
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 
-    
-}
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)changeStatusForClick:(NSInteger)storeIndex dishIndex:(NSInteger)dishIndex {
+    self.clickStoreIndex= storeIndex;
+    self.clickDishIndex = dishIndex;
+    [self changeStoreClickTypeAtindex];
+    [self scrollViewReloadata];
   
 }
 
+- (void)changeStoreClickTypeAtindex {
+    if(_storeList) {
+         for (int index = 0 ;index < _storeList.count ; index++) {
+             if(index != self.clickStoreIndex) {
+                 _storeList[index].type = IKGMStoreForbidClickType;
+                 _storeList[index].clickDishIndex = -1;
+             }
+             else {
+                 _storeList[index].type = IKGMStoreClickType;
+                 _storeList[index].clickDishIndex = self.clickDishIndex;
+             }
+             
+        }
+    }
+}
+
+- (void)scrollViewReloadata {
+    for (id cV in self.childViewControllers) {
+        if([cV isKindOfClass:[IKGMStoreViewController class]]) {
+            [(IKGMStoreViewController *)cV needReloadData];
+        }
+    }
+}
 
 @end

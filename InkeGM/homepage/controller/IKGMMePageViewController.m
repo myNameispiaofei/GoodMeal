@@ -6,20 +6,22 @@
 //  Copyright © 2018年 mubin. All rights reserved.
 //
 
+#import <Masonry.h>
 #import "IKGMBaseTooL.h"
 #import "IKGMPushInfoManager.h"
 #import "IKMeCollectionViewItem.h"
 #import "IKGMMePageViewController.h"
 #import "IKGMSettingCollectionViewCell.h"
+#import "IKGMHomeHeaderView.h"
+#import "IKGMSettingCollectionViewCell.h"
 
-@class IKGMSettingCollectionViewCell;
-@class IKGMMePageHeaderView;
+
 
 static NSString *cellIdentify = @"cellIdentify";
 @interface IKGMMePageViewController () <UICollectionViewDelegate ,UICollectionViewDataSource,IKGMSettingCollectionViewCellDelegate>
 
 @property (nonatomic , strong)UICollectionView * settingCollectionView;
-@property (nonatomic , strong)IKGMMePageHeaderView * headerView;
+@property (nonatomic , strong)IKGMHomeHeaderView * headerView;
 @property (nonatomic , strong)NSMutableArray *dataArray;
 
 @end
@@ -29,16 +31,26 @@ static NSString *cellIdentify = @"cellIdentify";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCellItems];
-    [self layoutUI];
+    [self layoutheaderView];
+    [self layoutCollectionView];
   
 }
 
 
-- (void)layoutUI {
+
+- (void)layoutheaderView {
+    [self.view addSubview:self.headerView];
+    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.mas_equalTo(self.view);
+        make.height.mas_equalTo(153);
+    }];
+}
+
+- (void)layoutCollectionView {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;   //UICollectionViewScrollDirectionHorizontal;
     flowLayout.itemSize = [self itemSize];
-    self.settingCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 225 + IKNavStartY , kScreenWidth, self.view.frame.size.height -225) collectionViewLayout:flowLayout];
+    self.settingCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 153 + IKNavStartY , kScreenWidth, self.view.frame.size.height - 153) collectionViewLayout:flowLayout];
     flowLayout.sectionInset  = UIEdgeInsetsMake(10, 15, 10, 15);
     self.settingCollectionView.delegate = self;
     self.settingCollectionView.dataSource = self;
@@ -169,4 +181,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
 - (CGSize)itemSize {
     return CGSizeMake(kScreenWidth -30, 54);
 }
+
+
+- (IKGMHomeHeaderView *)headerView {
+    if (!_headerView) {
+        _headerView = [[IKGMHomeHeaderView alloc]init];
+    }
+    return _headerView;
+}
+
 @end

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM (NSInteger,IKGMStoreType) {
+    IKGMStoreNormalType = 0 ,
+    IKGMStoreClickType,
+    IKGMStoreForbidClickType
+};
+
 @class IKGMRestaurantSectionList ;
 
 @interface IKGMRestaurantModel : NSObject
@@ -20,6 +26,8 @@
 @property (nonatomic ,copy)    NSString *restaurantTel;
 @property (nonatomic ,strong ) NSString *restaurantLongitude;
 @property (nonatomic ,strong ) NSString *restaurantLatitude;
+@property (nonatomic ,assign)  IKGMStoreType  type;
+@property (nonatomic ,assign)  NSInteger clickDishIndex;
 
 @end
 

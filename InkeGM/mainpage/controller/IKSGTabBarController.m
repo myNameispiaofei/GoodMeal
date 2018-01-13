@@ -7,7 +7,6 @@
 //
 
 #import "IKSGTabBarController.h"
-#import "IKGMHomepageController.h"
 #import "IKGMMainViewController.h"
 #import "IKGMNoticeViewController.h"
 #import "IKGMMainPageViewController.h"

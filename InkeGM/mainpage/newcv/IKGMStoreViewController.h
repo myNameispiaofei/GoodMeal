@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol IKGMStoreViewControllerDelegae<NSObject>
+
+- (void)changeStatusForClick:(NSInteger) storeIndex  dishIndex:(NSInteger)dishIndex;
+
+@end
+
+
 @interface IKGMStoreViewController : UIViewController
 
-- (instancetype)initWithRestaurantModel:(IKGMRestaurantModel *)model;
+@property (nonatomic , weak) id<IKGMStoreViewControllerDelegae>delegate;
+
+- (instancetype)initWithRestaurantModel:(IKGMRestaurantModel *)model index:(NSInteger)index;
+
+- (void)needReloadData;
 
 @end
