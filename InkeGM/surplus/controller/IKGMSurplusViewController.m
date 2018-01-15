@@ -18,7 +18,7 @@
 @property (nonatomic , strong)UICollectionView * collectionView;
 @property (nonatomic , strong)UIView *headerView;
 @property (nonatomic , strong)UILabel *titleLable;
-@property (nonatomic , strong)NSMutableArray *dataArray;
+@property (nonatomic , strong)NSMutableArray<IKGMSurplusModel*> *dataArray;
 
 @end
 
@@ -32,6 +32,14 @@ static NSString * const reuseIdentifier = @"surplusCellIdentifier";
     [self initCellItems];
     [self layoutheaderView];
     [self layoutCollectionView];
+}
+
+- (void)clickGetSurplusBtn {
+    // do  request
+}
+
+- (void)clickGiveupSurplusBtn {
+    // do request
 }
 
 
@@ -66,9 +74,18 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0  ;
 }
 
-
+// only for test UI
 - (void)initCellItems{
-    
+    self.dataArray = [NSMutableArray array];
+    for (int i= 0;i < 5; i++) {
+        IKGMSurplusModel *model = [[IKGMSurplusModel alloc]init];
+        model.storeName =@"万榕小厨";
+        model.dishName = @"皮蛋瘦肉粥套餐";
+        model.subTitle =@"映客直播专供";
+        model.privoderName = @"安慕jin";
+        model.type = IKGMSurplusModelGiveupType;
+        [self.dataArray addObject:model];
+    }
 }
 
 
@@ -78,6 +95,31 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
         make.left.top.right.mas_equalTo(self.view);
         make.height.mas_equalTo(IKNavAreaHeight);
     }];
+    
+    [self.headerView addSubview:self.titleLable];
+    [self.titleLable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(self.headerView);
+        make.bottom.mas_equalTo(self.headerView.mas_bottom).offset(-14);
+        make.height.mas_equalTo(16);
+    }];
+}
+- (UILabel *)titleLable {
+    if (!_titleLable) {
+        _titleLable = [[UILabel alloc]init];
+        _titleLable.textColor = k16RGBColor(0x48371e);
+        _titleLable.text = @"备餐";
+        _titleLable.textAlignment =NSTextAlignmentCenter;
+        _titleLable.backgroundColor = k16RGBColor(0xfdd93c);
+    }
+    return _titleLable;
+}
+
+- (UIView *)headerView {
+    if(!_headerView) {
+        _headerView = [[UIView alloc]init];
+        _headerView.backgroundColor = k16RGBColor(0xfdd93c);
+    }
+    return _headerView;
 }
 
 

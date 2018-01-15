@@ -113,18 +113,22 @@
         {
             [self.surplusBtn setTitle:@"放弃备餐" forState: UIControlStateNormal];
             self.surplusBtn.backgroundColor = k16RGBColor(0xfdd93c);
+            [self.surplusBtn setTitleColor:k16RGBColor(0x48371e) forState:UIControlStateNormal];
         }
         break;
         case IKGMSurplusModelGetStyle:
         {
             [self.surplusBtn setTitle:@"抢备餐" forState: UIControlStateNormal];
             self.surplusBtn.backgroundColor = k16RGBColor(0xfdd93c);
+            [self.surplusBtn setTitleColor:k16RGBColor(0x48371e) forState:UIControlStateNormal];
         }
         break;
         case IKGMSurplusModelGaryTyep:
         {
             [self.surplusBtn setTitle:@"抢备餐" forState: UIControlStateNormal];
-            self.surplusBtn.backgroundColor = k16RGBColor(0xf5f4ff);
+            self.surplusBtn.backgroundColor = k16RGBColor(0xe2e0d6);
+            [self.surplusBtn setTitleColor:k16RGBColor(0x948b79) forState:UIControlStateNormal];
+            
         }
         break;
         default:
@@ -137,6 +141,7 @@
 - (void)setModel:(IKGMSurplusModel *)model {
     self.surplusModel = model;
     if(self.surplusModel) {
+        self.contentView.backgroundColor = k16RGBColor(0xf5f4f0);
         [self layoutUI];
         [self initContent];
         [self setStyle];

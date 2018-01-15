@@ -30,6 +30,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        self.backgroundColor = [UIColor whiteColor];
         [self layoutUI];
     }
     return self;
@@ -83,6 +84,7 @@
     [self.commonBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.dishView);
         make.top.mas_equalTo(self.dishView.mas_bottom).offset(40);
+        make.height.mas_equalTo(49);
     }];
     [self.commonBtn addTarget:self action:@selector(clickCommonBtn) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -98,6 +100,8 @@
 - (IKCommonDishView *)dishView {
     if (!_dishView) {
         _dishView = [[IKCommonDishView alloc]init];
+        _dishView.layer.cornerRadius = 4;
+        _dishView.layer.masksToBounds = YES;
     }
     return _dishView;
 }
@@ -105,7 +109,13 @@
 - (UIButton *)commonBtn {
     if (!_commonBtn) {
         _commonBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_commonBtn setTitle:@"贡献为备餐" forState:UIControlStateNormal];
+        [_commonBtn setBackgroundColor:k16RGBColor(0x9d7200)];
+        _commonBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+        _commonBtn.layer.cornerRadius = 6;
+        _commonBtn.layer.masksToBounds = YES;
     }
+    
     return _commonBtn;
 }
 

@@ -15,15 +15,19 @@
 #import "IKGMUserManager.h"
 #import "IKGMRestaurantModel.h"
 #import "IKGMStoreViewController.h"
+#import "IKGMCommonAlertView.h"
 
-@interface IKGMMainPageViewController ()<UIScrollViewDelegate,IKGMStoreViewControllerDelegae>
-@property (nonatomic,strong)UIImageView *calendarImageView;
-@property (nonatomic,strong)UILabel *dateMsgLabel;
-@property (nonatomic,strong)IKGMMainPageScrollViwe *dinnerScrollView;
-@property (nonatomic ,strong)NSMutableArray<IKGMRestaurantModel*>* storeList;
+@interface IKGMMainPageViewController ()<UIScrollViewDelegate,IKGMStoreViewControllerDelegae,IKGMCommonAlertViewDelegate>
+
+@property (nonatomic ,strong) UIImageView *calendarImageView;
+@property (nonatomic ,strong) UILabel *dateMsgLabel;
+@property (nonatomic ,strong) IKGMMainPageScrollViwe *dinnerScrollView;
+
 @property (nonatomic ,assign) NSInteger clickStoreIndex;
 @property (nonatomic ,assign) NSInteger clickDishIndex;
+@property (nonatomic ,strong) NSMutableArray<IKGMRestaurantModel*>* storeList;
 @property (nonatomic ,assign) BOOL isBooked;
+@property (nonatomic ,strong) IKGMCommonAlertView *alertView;
 
 
 @end
@@ -49,11 +53,70 @@
             }
             else {
                 [self  mainPageInit];
+                [self.view layoutIfNeeded];
             }
         }}
     ];
 }
 
+- (void)clickBookDishBtn {
+    self.dinnerScrollView.hidden = YES;
+    [self showCommonAlertView];
+    
+}
+
+#pragma -mark IKGMStoreViewControllerDelegae
+
+- (void)changeStatusForClick:(NSInteger)storeIndex dishIndex:(NSInteger)dishIndex {
+    self.clickStoreIndex= storeIndex;
+    self.clickDishIndex = dishIndex;
+    [self changeStoreClickTypeAtindex];
+    [self scrollViewReloadata];
+    
+}
+
+- (void)changeStoreClickTypeAtindex {
+    if(_storeList) {
+        for (int index = 0 ;index < _storeList.count ; index++) {
+            if(index != self.clickStoreIndex) {
+                _storeList[index].type = IKGMStoreForbidClickType;
+                _storeList[index].clickDishIndex = -1;
+            }
+            else {
+                _storeList[index].type = IKGMStoreClickType;
+                _storeList[index].clickDishIndex = self.clickDishIndex;
+            }
+            
+        }
+    }
+}
+
+- (void)scrollViewReloadata {
+    for (id cV in self.childViewControllers) {
+        if([cV isKindOfClass:[IKGMStoreViewController class]]) {
+            [(IKGMStoreViewController *)cV needReloadData];
+        }
+    }
+}
+
+
+
+#pragma  -mark IKGMCommonAlertViewDelegate
+
+
+- (void)clickCancelDishButton {
+    
+}
+
+- (void)clickProvideDishbutton {
+    
+     
+}
+
+
+
+
+#pragma -mark UI
 
 - (void)mainPageInit {
     
@@ -64,6 +127,8 @@
         [self.dinnerScrollView addSubview:storeCV.view];
         storeCV.view.frame = CGRectMake(index *kScreenWidth , 0, kScreenWidth, 504);
     }
+    [self layoutAlertView];
+    
 }
 
 - (void)paraseAllSotreDict:(NSDictionary *)resDict {
@@ -144,36 +209,30 @@
 }
 
 
-- (void)changeStatusForClick:(NSInteger)storeIndex dishIndex:(NSInteger)dishIndex {
-    self.clickStoreIndex= storeIndex;
-    self.clickDishIndex = dishIndex;
-    [self changeStoreClickTypeAtindex];
-    [self scrollViewReloadata];
-  
+
+
+- (void)layoutAlertView {
+    [self.view addSubview:self.alertView];
+    [self.alertView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view.mas_left).offset(27);
+        make.right.mas_equalTo(self.view.mas_right).offset(-27);
+        make.top.mas_equalTo(self.dateMsgLabel.mas_bottom).offset(77.5);
+        make.height.mas_equalTo(401);
+    }];
+    self.alertView.hidden = YES;
 }
 
-- (void)changeStoreClickTypeAtindex {
-    if(_storeList) {
-         for (int index = 0 ;index < _storeList.count ; index++) {
-             if(index != self.clickStoreIndex) {
-                 _storeList[index].type = IKGMStoreForbidClickType;
-                 _storeList[index].clickDishIndex = -1;
-             }
-             else {
-                 _storeList[index].type = IKGMStoreClickType;
-                 _storeList[index].clickDishIndex = self.clickDishIndex;
-             }
-             
-        }
-    }
+- (void)showCommonAlertView{
+    self.alertView.hidden = NO;
 }
 
-- (void)scrollViewReloadata {
-    for (id cV in self.childViewControllers) {
-        if([cV isKindOfClass:[IKGMStoreViewController class]]) {
-            [(IKGMStoreViewController *)cV needReloadData];
-        }
+- (IKGMCommonAlertView *)alertView {
+    if (!_alertView) {
+        _alertView = [[IKGMCommonAlertView alloc]init];
+        _alertView.layer.cornerRadius = 6;
+        _alertView.layer.masksToBounds = YES;
     }
+    return _alertView;
 }
 
 @end

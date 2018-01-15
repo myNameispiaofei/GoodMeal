@@ -22,7 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self layoutUI];
-        self.backgroundColor = k16RGBColor(0xffffff);
+        self.backgroundColor = k16RGBColor(0xf5f4f0);
     }
     return self;
 }
@@ -45,7 +45,7 @@
 - (UILabel *)storeNameLabel {
     if (!_storeNameLabel) {
         _storeNameLabel = [[UILabel alloc]init];
-        _storeNameLabel.text = @"";
+        _storeNameLabel.text = @"万榕小厨";
         _storeNameLabel.textColor = k16RGBColor(0xb48300);
         _storeNameLabel.font = [UIFont systemFontOfSize:19];
         _storeNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -64,7 +64,7 @@
     
     [self addSubview:self.storeNameLabel];
     [self.storeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.storeBgImageView.mas_left).offset(48);
+        make.left.mas_equalTo(self.storeBgImageView.mas_left).offset(33);
         make.top.mas_equalTo(self.storeBgImageView);
         make.height.mas_equalTo(18);
         make.right.equalTo(self.mas_right).offset(-27);
@@ -72,8 +72,8 @@
     
     [self addSubview: self.dishTitleLabel];
     [self.dishTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.storeBgImageView).offset(15);
-        make.top.equalTo(self).offset(8);
+        make.left.equalTo(self.storeBgImageView);
+        make.top.equalTo(self.storeBgImageView.mas_bottom).offset(15);
         make.height.mas_equalTo(16);
         make.right.mas_equalTo(self);
     }];

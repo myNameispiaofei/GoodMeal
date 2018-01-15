@@ -10,7 +10,9 @@
 
 @protocol IKGMStoreViewControllerDelegae<NSObject>
 
-- (void)changeStatusForClick:(NSInteger) storeIndex  dishIndex:(NSInteger)dishIndex;
+- (void)changeStatusForClick:(NSInteger)storeIndex  dishIndex:(NSInteger)dishIndex;
+
+- (void)clickBookDishBtn;
 
 @end
 

@@ -6,6 +6,7 @@
 //  Copyright © 2018年 mubin. All rights reserved.
 //
 #import <Masonry.h>
+#import "IKGMBaseTooL.h"
 #import "IKGMRestaurantModel.h"
 #import "IKGMTableHeaderView.h"
 #import "IKGMDishTableViewCell.h"
@@ -18,6 +19,8 @@ static NSString *cellIdentifier = @"identifier" ;
 @property (nonatomic ,strong) UITableView *foodListTableView;
 @property (nonatomic ,strong) IKGMRestaurantModel *model;
 @property (nonatomic ,assign) NSInteger indexAtStoreList;
+@property (nonatomic ,strong) UIButton *bookDishBtn;
+@property (nonatomic ,strong) UIView *contentView;
 
 @end
 
@@ -34,12 +37,17 @@ static NSString *cellIdentifier = @"identifier" ;
 
 - (void)viewDidLoad {
     [self configUI];
-    self.foodListTableView.layer.cornerRadius = 6;
-    self.foodListTableView.layer.masksToBounds = YES;
+   
+    self.contentView.layer.cornerRadius = 6;
+    self.contentView.layer.masksToBounds = YES;
     
    
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self showBookbutton];
+}
 #pragma -mark tabelView datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -109,16 +117,43 @@ static NSString *cellIdentifier = @"identifier" ;
 }
 
 
+- (void)clickBookBtn {
+    if(self.delegate && [self.delegate respondsToSelector:@selector(clickBookDishBtn)]) {
+        [self.delegate clickBookDishBtn];
+    }
+}
+
 
 #pragma -mark UI
 
 - (void)configUI {
-    [self.view addSubview:self.foodListTableView];
-    [self.foodListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.view addSubview:self.contentView];
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.top.equalTo(self.view);
         make.left.equalTo(self.view.mas_left).offset(27);
         make.right.equalTo(self.view.mas_right).offset(-27);
+        
     }];
+    [self.contentView addSubview:self.foodListTableView];
+    [self.foodListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.top.mas_equalTo(self.contentView);
+    }];
+    [self.contentView addSubview:self.bookDishBtn];
+    [self.bookDishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView.mas_left).offset(15);
+        make.right.equalTo(self.contentView.mas_right).offset(-15);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-15);
+        make.height.mas_equalTo(49);
+    }];
+    self.bookDishBtn.hidden = YES;
+}
+
+- (UIView *)contentView {
+    if( !_contentView) {
+        _contentView = [[UIView alloc]init];
+        _contentView.backgroundColor = [UIColor whiteColor];
+    }
+    return _contentView;
 }
 
 - (UITableView *)foodListTableView {
@@ -131,10 +166,42 @@ static NSString *cellIdentifier = @"identifier" ;
     return _foodListTableView;
 }
 
+- (UIButton *)bookDishBtn {
+    if (!_bookDishBtn) {
+        _bookDishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_bookDishBtn setTitle:@"下单" forState:UIControlStateNormal];
+        [_bookDishBtn setTitleColor:k16RGBColor(0xffffff) forState:UIControlStateNormal];
+        _bookDishBtn.backgroundColor = k16RGBColor(0x9d7200);
+        _bookDishBtn.layer.cornerRadius = 6;
+        _bookDishBtn.layer.masksToBounds = YES;
+        [_bookDishBtn addTarget:self action:@selector(clickBookBtn) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _bookDishBtn;
+}
+
+
 - (void)needReloadData {
     if(self.foodListTableView) {
+        [self showBookbutton];
         [self.foodListTableView reloadData];
     }
+}
+
+- (void)showBookbutton {
+    
+    if( IKGMStoreClickType == self.model.type) {
+        CGRect frame = self.foodListTableView.frame;
+        frame.size.height = self.contentView.frame.size.height - 65;
+        [self.foodListTableView setFrame:frame];
+        _bookDishBtn.hidden = NO;
+    }
+    else{
+         CGRect frame = self.foodListTableView.frame;
+        frame.size.height = self.contentView.frame.size.height;
+        [self.foodListTableView setFrame:frame];
+        _bookDishBtn.hidden = YES;
+    }
+
 }
 
 @end
