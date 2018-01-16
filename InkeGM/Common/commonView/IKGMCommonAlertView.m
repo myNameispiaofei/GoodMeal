@@ -8,6 +8,7 @@
 
 
 #import <Masonry.h>
+#import "IKGMRestaurantModel.h"
 #import "IKGMBaseTooL.h"
 #import "IKCommonDishView.h"
 #import "IKGMCommonAlertView.h"
@@ -36,9 +37,23 @@
     return self;
 }
 
-- (void)setContentWithModel {
-    
+- (void)setOrderModel:(IKGMOrderModel *)orderModel {
+    [self.headerView setStyle:IKGMCommonHeaderOrderType];
+    [self.dishView setOrderModel:orderModel];
+    [self setAlertType:IKGMCommonAlertCancelDish];
 }
+
+
+- (void)setAlertType :(IKGMCommonAlertType)type {
+    self.type = type;
+    if(IKGMCommonAlertSurplus == type) {
+        [_commonBtn setTitle:@"贡献为备餐" forState:UIControlStateNormal];
+    }
+    if(IKGMCommonAlertCancelDish == type) {
+        [_commonBtn setTitle:@"取消订单" forState:UIControlStateNormal];
+    }
+}
+
 
 #pragma  -mark  ButtonAction
 
@@ -109,7 +124,7 @@
 - (UIButton *)commonBtn {
     if (!_commonBtn) {
         _commonBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_commonBtn setTitle:@"贡献为备餐" forState:UIControlStateNormal];
+        [_commonBtn setTitle:@"取消订单" forState:UIControlStateNormal];
         [_commonBtn setBackgroundColor:k16RGBColor(0x9d7200)];
         _commonBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         _commonBtn.layer.cornerRadius = 6;

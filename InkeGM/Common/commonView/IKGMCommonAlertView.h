@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class  IKGMOrderModel;
+
 typedef NS_ENUM(NSInteger,IKGMCommonAlertType) {
     IKGMCommonAlertSurplus = 0,
     IKGMCommonAlertCancelDish
@@ -25,6 +27,11 @@ typedef NS_ENUM(NSInteger,IKGMCommonAlertType) {
 @interface IKGMCommonAlertView : UIView
 
 @property (nonatomic , weak) id<IKGMCommonAlertViewDelegate>delegate;
+
+
+- (void)setOrderModel:(IKGMOrderModel *)orderModel;
+
+- (void)setAlertType :(IKGMCommonAlertType)type;
 
 
 @end

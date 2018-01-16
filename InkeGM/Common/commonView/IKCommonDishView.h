@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class IKGMOrderModel;
 
 @interface IKCommonDishView : UIView
 
 @property(nonatomic ,strong) UILabel *storeNameLabel;
 @property(nonatomic ,strong) UILabel *subTitleLable;
 @property(nonatomic ,strong) UILabel *dishTitleLabel;
+
+- (void)setOrderModel:(IKGMOrderModel *)orderModel;
 
 @end

@@ -29,16 +29,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
     [self configUI];
     [self layouUI];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(transformView:) name:UIKeyboardWillChangeFrameNotification object:nil];
    
 }
 - (void)configUI{
-   
-    UIImageView * bgImageview = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    bgImageview.image = [UIImage imageNamed:@"bg_image.jpg"];
+    self.view.backgroundColor = k16RGBColor(0xfdd93c);
+    UIImageView * bgImageview = [[UIImageView alloc]init];
+    bgImageview.image = [UIImage imageNamed:@""];
     [self.view addSubview:bgImageview];
     self.bgImageView = bgImageview;
     
@@ -59,6 +58,12 @@
 }
 
 - (void)layouUI{
+    
+    [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.view.mas_top).offset(110);
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+        make.width.height.mas_equalTo(90);
+    }];
     
     [self.loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
@@ -106,8 +111,8 @@
     loginModel.passwd = self.loginView.passWordTextField.text;
     loginModel.username = self.loginView.accountTextField.text;
     
-    loginModel.passwd = @"Mb159753";
-    loginModel.username = @"mub";
+//    loginModel.passwd = @"Mb159753";
+//    loginModel.username = @"mub";
     [[IKGMHttpRequsetManager sharedInstance] requsetWithLoginModel:loginModel complete:^(NSInteger result){
         if(result == 1) {
              IKSGTabBarController *tabvc = [[IKSGTabBarController alloc]init];

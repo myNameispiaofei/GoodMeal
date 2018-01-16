@@ -8,6 +8,7 @@
 #import "IKGMBaseTooL.h"
 #import <Masonry.h>
 #import "IKCommonDishView.h"
+#import "IKGMRestaurantModel.h"
 
 @interface IKCommonDishView ()
 
@@ -27,6 +28,18 @@
     return self;
 }
 
+- (void)setOrderModel:(IKGMOrderModel *)orderModel {
+    if(orderModel) {
+        NSRange range = [orderModel.dish.dishName rangeOfString:@"("];
+        NSString *dishName = [orderModel.dish.dishName substringToIndex:range.location];
+        NSString *subtitle = [orderModel.dish.dishName substringFromIndex:range.location+1];
+        range = [subtitle  rangeOfString:@"/映客"];
+        subtitle = [subtitle substringToIndex:range.location];
+        self.dishTitleLabel.text = dishName;
+        self.subTitleLable.text = subtitle;
+        self.storeNameLabel.text = orderModel.restaurantName;
+    }
+}
 
 - (void)setStoreName:(NSString *)title {
     self.storeNameLabel.text = title;

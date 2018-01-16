@@ -12,8 +12,9 @@
 
 +(instancetype)sharedInstance;
 
-@property (nonatomic ,copy)NSString *userName;
-@property (nonatomic ,copy)NSString *ticket;
+@property (nonatomic ,  copy) NSString *userName;
+@property (nonatomic ,  copy) NSString *ticket;
 @property (nonatomic ,assign) NSInteger loginStatus;
+@property (nonatomic ,  copy) NSString *orderId;
 
 @end

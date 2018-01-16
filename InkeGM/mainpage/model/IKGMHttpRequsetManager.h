@@ -17,6 +17,8 @@ typedef void (^IKGMLoginBlock)(NSInteger code);
 
 typedef void (^IKGMOrderResult)(NSDictionary * resDict,NSInteger code);
 
+typedef void (^IKGMRequestBlock)(NSDictionary * resDict,NSInteger code);
+
 typedef void (^IKGMRequestMenu)(NSDictionary * resDict,NSInteger code);
 
 +(instancetype)sharedInstance;
@@ -30,6 +32,9 @@ typedef void (^IKGMRequestMenu)(NSDictionary * resDict,NSInteger code);
 
 
 - (void)orderGoodMeal:(IKGMOrderModel *)order complete:(IKGMOrderResult)complete;
+
+- (void)cancelOreder:(id)user complete:(IKGMOrderResult)complete;
+
 
 
 - (void)preparedish:(id)dish complete:(IKGMOrderResult)complete;

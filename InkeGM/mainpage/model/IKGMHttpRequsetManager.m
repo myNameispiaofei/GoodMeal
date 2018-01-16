@@ -10,9 +10,10 @@
 #import <AFNetworking.h>
 #import "IKGMLoginModel.h"
 #import "IKGMUserManager.h"
+#import "IKGMRestaurantModel.h"
 
 @class  IKGMLogoutModel;
-@class  IKGMOrderModel;
+
 @interface IKGMHttpRequsetManager ()
 
 @property (nonatomic,strong) AFHTTPRequestOperationManager *mar;
@@ -115,8 +116,9 @@
     NSString *url  = @"http://47.95.160.110/api/order/add";
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
-    [params setObject:@"1" forKey:@"restaurantId"];
-    [params setObject:@"1" forKey:@"dishId"];
+    [params setObject:order.restaurantId forKey:@"restaurantId"];
+    [params setObject:@(order.dish.dishId) forKey:@"dishId"];
+    [params setObject:@(order.dish.priceInCent) forKey:@"price"];
     [params setObject:self.ticket forKey:@"ticket"];
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSLog(@"223%@",responseObject);
@@ -127,6 +129,25 @@
             NSLog(@"d订餐成功！！！！！！！！！！！！");
         }
         NSLog(@"%@", responseDictionary);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"eadda");
+    }];
+}
+
+// 取消订单
+- (void)cancelOreder:(id)user complete:(IKGMOrderResult)complete {
+    NSString *url = @"http://47.95.160.110/api/order/delete";
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    [params setObject:self.ticket forKey:@"ticket"];
+    [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
+    [self.mar POST:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSLog(@"223%@",responseObject);
+        NSError *error;
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        if(complete) {
+            complete(responseDictionary ,0);
+            NSLog(@"！！！！");
+        }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"eadda");
     }];

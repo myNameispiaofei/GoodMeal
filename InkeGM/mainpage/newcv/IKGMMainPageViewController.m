@@ -16,6 +16,8 @@
 #import "IKGMRestaurantModel.h"
 #import "IKGMStoreViewController.h"
 #import "IKGMCommonAlertView.h"
+#import "IKGMHttpRequsetManager.h"
+#import "IKGMRestaurantModel.h"
 
 @interface IKGMMainPageViewController ()<UIScrollViewDelegate,IKGMStoreViewControllerDelegae,IKGMCommonAlertViewDelegate>
 
@@ -28,6 +30,7 @@
 @property (nonatomic ,strong) NSMutableArray<IKGMRestaurantModel*>* storeList;
 @property (nonatomic ,assign) BOOL isBooked;
 @property (nonatomic ,strong) IKGMCommonAlertView *alertView;
+@property (nonatomic ,strong) IKGMOrderModel *orderModel;
 
 
 @end
@@ -60,9 +63,19 @@
 }
 
 - (void)clickBookDishBtn {
-    self.dinnerScrollView.hidden = YES;
-    [self showCommonAlertView];
     
+    IKGMOrderModel *orderModel = [IKGMOrderModel new];
+    orderModel.restaurantId = self.storeList[_clickStoreIndex].restaurantId;
+    orderModel.restaurantName =  self.storeList[_clickStoreIndex].restaurantName;
+    orderModel.dish = self.storeList[_clickStoreIndex].sectionList[0].dishList[_clickDishIndex];
+    [[IKGMHttpRequsetManager sharedInstance]  orderGoodMeal:orderModel complete:^(NSDictionary *resDict, NSInteger code) {
+        if(code == 0 && resDict) {
+            NSString *orderId = [resDict objectForKey:@"orderId"];
+            [IKGMUserManager sharedInstance].orderId = orderId;
+            self.dinnerScrollView.hidden = YES;
+            [self showCommonAlertView];
+        }
+    }];
 }
 
 #pragma -mark IKGMStoreViewControllerDelegae
@@ -105,7 +118,14 @@
 
 
 - (void)clickCancelDishButton {
-    
+        [[IKGMHttpRequsetManager sharedInstance] cancelOreder:nil complete:^(NSDictionary *resDict, NSInteger code) {
+            if (resDict){
+                [self reSetData];
+                self.alertView.hidden = YES;
+                self.dinnerScrollView.hidden = NO;
+                [self scrollViewReloadata];
+            }
+        }];
 }
 
 - (void)clickProvideDishbutton {
@@ -113,6 +133,13 @@
      
 }
 
+- (void)reSetData {
+    if(self.storeList) {
+        for (IKGMRestaurantModel *model in self.storeList) {
+            model.type =IKGMStoreNormalType;
+        }
+    }
+}
 
 
 
@@ -224,6 +251,11 @@
 
 - (void)showCommonAlertView{
     self.alertView.hidden = NO;
+    IKGMOrderModel *orderModel = [IKGMOrderModel new];
+    orderModel.restaurantId = self.storeList[_clickStoreIndex].restaurantId;
+    orderModel.restaurantName =  self.storeList[_clickStoreIndex].restaurantName;
+    orderModel.dish = self.storeList[_clickStoreIndex].sectionList[0].dishList[_clickDishIndex];
+    [self.alertView setOrderModel:orderModel];
 }
 
 - (IKGMCommonAlertView *)alertView {
@@ -231,6 +263,7 @@
         _alertView = [[IKGMCommonAlertView alloc]init];
         _alertView.layer.cornerRadius = 6;
         _alertView.layer.masksToBounds = YES;
+        _alertView.delegate = self;
     }
     return _alertView;
 }

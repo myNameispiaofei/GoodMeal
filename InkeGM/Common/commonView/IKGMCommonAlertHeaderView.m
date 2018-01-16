@@ -82,6 +82,15 @@
     return _subTitleLabel;
 }
 
-
+- (void)setStyle:(IKGMCommonHeaderStyle)type {
+    if(type == IKGMCommonHeaderOrderType) {
+       _subTitleLabel.text = @"预计下午七点半到达";
+       _titleLabel.text = @"下单成功";
+    }
+    if(type == IKGMCommonHeaderSurplusType) {
+        _subTitleLabel.text = @"请去三楼取餐";
+        _titleLabel.text = @"餐已到达";
+    }
+}
 
 @end

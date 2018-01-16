@@ -18,16 +18,16 @@ typedef NS_ENUM (NSInteger,IKGMStoreType) {
 
 @interface IKGMRestaurantModel : NSObject
 
-@property (nonatomic ,copy)    NSString *restaurantName;
-@property (nonatomic ,assign)  NSInteger minDeliveryAmountInCent;
-@property (nonatomic ,assign)  NSInteger freightInCent;
-@property (nonatomic ,assign)  NSString *restaurantId;
-@property (nonatomic ,strong)  NSArray <IKGMRestaurantSectionList *>* sectionList;
-@property (nonatomic ,copy)    NSString *restaurantTel;
-@property (nonatomic ,strong ) NSString *restaurantLongitude;
-@property (nonatomic ,strong ) NSString *restaurantLatitude;
-@property (nonatomic ,assign)  IKGMStoreType  type;
-@property (nonatomic ,assign)  NSInteger clickDishIndex;
+@property (nonatomic ,  copy) NSString *restaurantName;
+@property (nonatomic ,assign) NSInteger minDeliveryAmountInCent;
+@property (nonatomic ,assign) NSInteger freightInCent;
+@property (nonatomic ,  copy) NSString *restaurantId;
+@property (nonatomic ,strong) NSArray<IKGMRestaurantSectionList *> *sectionList;
+@property (nonatomic ,  copy) NSString *restaurantTel;
+@property (nonatomic ,strong) NSString *restaurantLongitude;
+@property (nonatomic ,strong) NSString *restaurantLatitude;
+@property (nonatomic ,assign) IKGMStoreType type;
+@property (nonatomic ,assign) NSInteger clickDishIndex;
 
 @end
 
@@ -44,10 +44,17 @@ typedef NS_ENUM (NSInteger,IKGMStoreType) {
 
 @interface IKGMDishModel : NSObject
 
-@property (nonatomic ,copy)   NSString *dishName;
+@property (nonatomic ,  copy) NSString *dishName;
 @property (nonatomic ,assign) NSInteger dishId;
 @property (nonatomic ,assign) NSInteger boxPriceInCent;
 @property (nonatomic ,assign) NSInteger priceInCent;
+
+@end
+
+@interface IKGMOrderModel : NSObject
+@property (nonatomic ,   weak) IKGMDishModel *dish;
+@property (nonatomic ,   copy) NSString *restaurantId;
+@property (nonatomic , strong) NSString *restaurantName;
 
 @end
 

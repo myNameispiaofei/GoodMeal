@@ -66,3 +66,6 @@
 
 @end
 
+@implementation IKGMOrderModel
+
+@end
