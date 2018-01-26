@@ -71,94 +71,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InkeGM/mainpage/newcv/IKGMMainPageViewController.m"
-            timestampString = "537777843.339143"
+            filePath = "InkeGM/login/controller/IKGMLoginController.m"
+            timestampString = "538578114.856366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-clickCancelDishButton"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InkeGM/mainpage/newcv/IKGMMainPageViewController.m"
-            timestampString = "537777843.339228"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-clickCancelDishButton"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "537777843.339772"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "-cancelOreder:complete:"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-clickLoginBtn"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[IKGMHttpRequsetManager cancelOreder:complete:]"
+                  symbolName = "-[IKGMLoginController clickLoginBtn]"
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-                  timestampString = "537777843.49077"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/controller/IKGMLoginController.m"
+                  timestampString = "538578115.055931"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "408">
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "628">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__48-[IKGMHttpRequsetManager cancelOreder:complete:]_block_invoke"
+                  symbolName = "__36-[IKGMLoginController clickLoginBtn]_block_invoke"
                   moduleName = "InkeGM"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-                  timestampString = "537777843.492219"
+                  urlString = "file:///Users/inke/Desktop/InkeGM/InkeGM/login/controller/IKGMLoginController.m"
+                  timestampString = "538578115.0592051"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InkeGM/mainpage/model/IKGMHttpRequsetManager.m"
-            timestampString = "537777843.339991"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-cancelOreder:complete:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

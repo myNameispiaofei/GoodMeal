@@ -6,6 +6,7 @@
 //  Copyright © 2018年 mubin. All rights reserved.
 //
 
+#import "IKGMLoginController.h"
 #import <Masonry.h>
 #import "IKGMBaseTooL.h"
 #import "IKGMPushInfoManager.h"
@@ -21,7 +22,7 @@ static NSString *cellIdentify = @"cellIdentify";
 @interface IKGMMePageViewController () <UICollectionViewDelegate ,UICollectionViewDataSource,IKGMSettingCollectionViewCellDelegate>
 
 @property (nonatomic , strong)UICollectionView * settingCollectionView;
-@property (nonatomic , strong)IKGMHomeHeaderView * headerView;
+@property (nonatomic , strong)IKGMHomeHeaderView *headerView;
 @property (nonatomic , strong)NSMutableArray *dataArray;
 
 @end
@@ -123,7 +124,9 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
         break;
         case IKMeSettingSignout:
         {
-           // do login
+
+           IKGMLoginController * cv = [[IKGMLoginController alloc]init];
+           self.view.window.rootViewController = cv; 
         }
         default:
             break;

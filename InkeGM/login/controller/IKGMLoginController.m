@@ -110,13 +110,12 @@
     IKGMLoginModel * loginModel = [[IKGMLoginModel alloc] init];
     loginModel.passwd = self.loginView.passWordTextField.text;
     loginModel.username = self.loginView.accountTextField.text;
-    
-//    loginModel.passwd = @"Mb159753";
-//    loginModel.username = @"mub";
+    [IKGMUserManager sharedInstance].userName = loginModel.username;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [[IKGMHttpRequsetManager sharedInstance] requsetWithLoginModel:loginModel complete:^(NSInteger result){
         if(result == 1) {
              IKSGTabBarController *tabvc = [[IKSGTabBarController alloc]init];
-             [IKGMUserManager sharedInstance].userName = loginModel.username;
+//             [IKGMUserManager sharedInstance].userName = loginModel.username;
              self.view.window.rootViewController = tabvc;
         }
     }];

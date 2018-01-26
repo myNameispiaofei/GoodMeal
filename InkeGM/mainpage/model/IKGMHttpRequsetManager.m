@@ -84,8 +84,8 @@
     [self.mar POST:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSLog(@"223%@",responseObject);
         NSError *error;
-        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-        NSLog(@"%@", responseDictionary);
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSLog(@"%@", responseDict);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"eadda");
     }];
@@ -100,11 +100,10 @@
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSLog(@"223%@",responseObject);
         NSError *error;
-        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         if(complete) {
-            complete(responseDictionary ,0);
+            complete(responseDict,0);
         }
-        NSLog(@"%@", responseDictionary);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"eadda");
     }];
@@ -123,12 +122,12 @@
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSLog(@"223%@",responseObject);
         NSError *error;
-        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         if(complete) {
-            complete(responseDictionary ,0);
+            complete(responseDict ,0);
             NSLog(@"d订餐成功！！！！！！！！！！！！");
         }
-        NSLog(@"%@", responseDictionary);
+        NSLog(@"%@", responseDict);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"eadda");
     }];
@@ -140,16 +139,21 @@
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     [params setObject:self.ticket forKey:@"ticket"];
     [params setObject:[IKGMUserManager sharedInstance].userName forKey:@"username"];
-    [self.mar POST:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSLog(@"223%@",responseObject);
+    [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSError *error;
-        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSNumber *dmError = nil;
+        if(responseDict) {
+          dmError = [responseDict objectForKey:@"dm_error"];
+        }
         if(complete) {
-            complete(responseDictionary ,0);
-            NSLog(@"！！！！");
+        IKGMErrorCode gmErrorCode = dmError.integerValue == 0 ? IKGMSUCCESS : IKGMError;
+            complete(responseDict ,gmErrorCode);
         }
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"eadda");
+        if (complete) {
+            complete(nil, IKGMError);
+        }
     }];
 }
 
@@ -162,9 +166,9 @@
     
     [self.mar GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSError *error;
-        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         if(complete) {
-            complete(responseDictionary ,0);
+            complete(responseDict ,0);
         }
         
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {

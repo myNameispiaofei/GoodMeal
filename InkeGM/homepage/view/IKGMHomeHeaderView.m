@@ -5,7 +5,7 @@
 //  Created by mubin on 2018/1/11.
 //  Copyright © 2018年 mubin. All rights reserved.
 //
-
+#import "IKGMUserManager.h"
 #import "IKGMBaseTooL.h"
 #import <Masonry.h>
 #import "IKGMHomeHeaderView.h"
@@ -96,7 +96,7 @@
         _emailLable.textColor = k16RGBColor(0x48371e);
         _emailLable.font = [UIFont systemFontOfSize:15];
         _emailLable.textAlignment = NSTextAlignmentLeft;
-        _emailLable.text = @"anmj@inke.cn";
+        _emailLable.text = [[IKGMUserManager sharedInstance].userName stringByAppendingString:@"@inke.cn"];
     }
     return  _emailLable;
 }
@@ -104,6 +104,9 @@
 - (UIImageView *)portraitImageView {
     if (!_portraitImageView) {
         _portraitImageView = [[UIImageView alloc]init];
+        _portraitImageView.backgroundColor = k16RGBColor(0x00d8c9);
+        _portraitImageView.layer.cornerRadius = 40;
+        _portraitImageView.layer.masksToBounds = YES;
     }
     return  _portraitImageView;
 }
@@ -114,7 +117,7 @@
         _nickNameLabel.textColor = k16RGBColor(0x48371e);
         _nickNameLabel.font = [UIFont systemFontOfSize:23];
         _nickNameLabel.textAlignment = NSTextAlignmentLeft;
-        _nickNameLabel.text = @"安慕锦";
+        _nickNameLabel.text = [IKGMUserManager sharedInstance].userName;
     }
     return _nickNameLabel;
 }

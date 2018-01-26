@@ -20,7 +20,6 @@
     self.window = [[ UIWindow alloc]initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     IKGMLoginController *dologinCV=[[IKGMLoginController alloc]init];
-//    UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:dologinCV];
     self.window.rootViewController =dologinCV;
     [self.window makeKeyAndVisible];
 

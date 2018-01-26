@@ -5,7 +5,7 @@
 //  Created by mubin on 2017/11/12.
 //  Copyright © 2017年 inke. All rights reserved.
 //
-
+#import "IKGMBaseTooL.h"
 #import "IKSGTabBarController.h"
 #import "IKGMNoticeViewController.h"
 #import "IKGMMainPageViewController.h"
@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadControllers];
+   
     
 }
 
@@ -31,7 +32,8 @@
     [self addChildVc:[[IKGMMainPageViewController alloc] init] title:@"点餐" image:@"book_food" selectedImage:@"book_click"];
 
     [self addChildVc:[[IKGMMePageViewController alloc]init] title:@"我" image:@"me" selectedImage:@"me_click"];
-    
+    self.tabBar.tintColor = k16RGBColor(0xfdd93c);
+    self.selectedIndex = 1;
 }
 
 

@@ -118,8 +118,8 @@
 
 
 - (void)clickCancelDishButton {
-        [[IKGMHttpRequsetManager sharedInstance] cancelOreder:nil complete:^(NSDictionary *resDict, NSInteger code) {
-            if (resDict){
+        [[IKGMHttpRequsetManager sharedInstance] cancelOreder:nil complete:^(NSDictionary *resDict, IKGMErrorCode errorCode) {
+            if(errorCode == IKGMSUCCESS) {
                 [self reSetData];
                 self.alertView.hidden = YES;
                 self.dinnerScrollView.hidden = NO;
