@@ -231,10 +231,8 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    if ([scrollView isKindOfClass:[UITableView class]]) {
-        self.dinnerScrollView.beginContentOffsetX = scrollView.contentOffset.x;
-        self.dinnerScrollView.isDragging = YES;
-    }
+    self.dinnerScrollView.beginContentOffsetX = scrollView.contentOffset.x;
+    self.dinnerScrollView.isDragging = YES;
 }
 
 

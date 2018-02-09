@@ -58,19 +58,26 @@
             }
             
             float duration = [self sd_frameDurationAtIndex:i source:source];
-            UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];
+#if SD_WATCH
+            CGFloat scale = 1;
+            scale = [WKInterfaceDevice currentDevice].screenScale;
+#elif SD_UIKIT
+            CGFloat scale = 1;
+            scale = [UIScreen mainScreen].scale;
+#endif
+            UIImage *image = [UIImage imageWithCGImage:imageRef scale:scale orientation:UIImageOrientationUp];
             CGImageRelease(imageRef);
             
             SDWebImageFrame *frame = [SDWebImageFrame frameWithImage:image duration:duration];
             [frames addObject:frame];
         }
         
-        NSUInteger loopCount = 1;
+        NSUInteger loopCount = 0;
         NSDictionary *imageProperties = (__bridge_transfer NSDictionary *)CGImageSourceCopyProperties(source, nil);
         NSDictionary *gifProperties = [imageProperties valueForKey:(__bridge_transfer NSString *)kCGImagePropertyGIFDictionary];
         if (gifProperties) {
             NSNumber *gifLoopCount = [gifProperties valueForKey:(__bridge_transfer NSString *)kCGImagePropertyGIFLoopCount];
-            if (gifLoopCount != nil) {
+            if (gifLoopCount) {
                 loopCount = gifLoopCount.unsignedIntegerValue;
             }
         }
@@ -88,18 +95,15 @@
 - (float)sd_frameDurationAtIndex:(NSUInteger)index source:(CGImageSourceRef)source {
     float frameDuration = 0.1f;
     CFDictionaryRef cfFrameProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil);
-    if (!cfFrameProperties) {
-        return frameDuration;
-    }
     NSDictionary *frameProperties = (__bridge NSDictionary *)cfFrameProperties;
     NSDictionary *gifProperties = frameProperties[(NSString *)kCGImagePropertyGIFDictionary];
     
     NSNumber *delayTimeUnclampedProp = gifProperties[(NSString *)kCGImagePropertyGIFUnclampedDelayTime];
-    if (delayTimeUnclampedProp != nil) {
+    if (delayTimeUnclampedProp) {
         frameDuration = [delayTimeUnclampedProp floatValue];
     } else {
         NSNumber *delayTimeProp = gifProperties[(NSString *)kCGImagePropertyGIFDelayTime];
-        if (delayTimeProp != nil) {
+        if (delayTimeProp) {
             frameDuration = [delayTimeProp floatValue];
         }
     }

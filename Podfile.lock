@@ -21,9 +21,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Masonry (1.1.0)
-  - SDWebImage (4.3.0):
-    - SDWebImage/Core (= 4.3.0)
-  - SDWebImage/Core (4.3.0)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -35,7 +35,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: 855c750bfe70eaae93441583d27c22912df66db4

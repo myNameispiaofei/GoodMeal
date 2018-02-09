@@ -28,6 +28,8 @@
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    NSLog(@"===www=== shouldReceiveTouch gestureRecognizer%@",gestureRecognizer);
+    NSLog(@"===www=== shouldReceiveTouch %@",touch.view);
     return YES;
 }
 
@@ -40,8 +42,10 @@
     UIView * view = [super hitTest:point withEvent:event];
     
     if ([view isKindOfClass:[IKGMMainPageScrollViwe class]]) {
+        NSLog(@"===wqw=== hitTest >>>>>> 1111111111%@",NSStringFromClass([view class]) );
         return nil;
     }
+    NSLog(@"===wqw=== hitTest >>>>>> 222222222222 %@",NSStringFromClass([view class]));
     return view;
 }
 

@@ -19,7 +19,6 @@ FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadFinishNotification
 
 /**
  Describes a downloader operation. If one wants to use a custom downloader op, it needs to inherit from `NSOperation` and conform to this protocol
- For the description about these methods, see `SDWebImageDownloaderOperation`
  */
 @protocol SDWebImageDownloaderOperationInterface<NSObject>
 
@@ -35,8 +34,6 @@ FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadFinishNotification
 
 - (nullable NSURLCredential *)credential;
 - (void)setCredential:(nullable NSURLCredential *)value;
-
-- (BOOL)cancel:(nullable id)token;
 
 @end
 
