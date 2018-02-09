@@ -37,7 +37,7 @@
 - (void)configUI{
     self.view.backgroundColor = k16RGBColor(0xfdd93c);
     UIImageView * bgImageview = [[UIImageView alloc]init];
-    bgImageview.image = [UIImage imageNamed:@""];
+    bgImageview.image = [UIImage imageNamed:@"ikgm_icon"];
     [self.view addSubview:bgImageview];
     self.bgImageView = bgImageview;
     
@@ -60,14 +60,14 @@
 - (void)layouUI{
     
     [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.view.mas_top).offset(110);
+        make.bottom.mas_equalTo(self.loginView.mas_top).offset(-20);
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.width.height.mas_equalTo(90);
     }];
     
     [self.loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.top.equalTo(self.view.mas_top).offset(268.5);
+        make.top.equalTo(self.view.mas_top).offset(268.5 + IKNavBarHeight);
         make.height.mas_equalTo(120);
     }];
     [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,7 +101,7 @@
     
 
     [UIView animateWithDuration:0.25f animations:^{
-        [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+deltaY/2, self.view.frame.size.width, self.view.frame.size.height)];
+        [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+deltaY/3 , self.view.frame.size.width, self.view.frame.size.height)];
     }];
 }
 
