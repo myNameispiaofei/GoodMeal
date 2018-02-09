@@ -97,8 +97,6 @@
     CGRect  endRect=[keyBoardEndBounds CGRectValue];
     
     CGFloat deltaY= endRect.origin.y-beginRect.origin.y;
-    NSLog(@"看看这个变化的Y值:%f",deltaY);
-    
 
     [UIView animateWithDuration:0.25f animations:^{
         [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+deltaY/2, self.view.frame.size.width, self.view.frame.size.height)];
@@ -112,11 +110,20 @@
     loginModel.username = self.loginView.accountTextField.text;
     [IKGMUserManager sharedInstance].userName = loginModel.username;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    __weak typeof(self) wself = self;
     [[IKGMHttpRequsetManager sharedInstance] requsetWithLoginModel:loginModel complete:^(NSInteger result){
         if(result == 1) {
              IKSGTabBarController *tabvc = [[IKSGTabBarController alloc]init];
-//             [IKGMUserManager sharedInstance].userName = loginModel.username;
+             [IKGMUserManager sharedInstance].userName = loginModel.username;
              self.view.window.rootViewController = tabvc;
+        }
+        else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"账户或密码输入错误～" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancle = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alertController addAction:cancle];
+           [wself presentViewController:alertController animated:NO completion:nil];
         }
     }];
 }
